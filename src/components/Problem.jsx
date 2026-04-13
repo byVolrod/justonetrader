@@ -24,10 +24,7 @@ const problems = [
 
 export default function Problem() {
   return (
-    <section className="py-16 sm:py-24 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(239,68,68,0.04), transparent)' }} />
-
+    <section className="py-16 sm:py-24">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-12"
@@ -56,7 +53,7 @@ export default function Problem() {
               key={p.title}
               className="relative rounded-2xl p-6 cursor-default overflow-hidden"
               style={{
-                background: `linear-gradient(135deg, ${p.color}08, #1c1c1c 60%)`,
+                background: `linear-gradient(135deg, ${p.color}08, #111111 60%)`,
                 border: `1px solid ${p.color}22`,
               }}
               initial={{ opacity: 0, y: 20 }}

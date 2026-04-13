@@ -24,7 +24,7 @@ function Card({ t }) {
       flexShrink: 0,
       display: 'flex',
       flexDirection: 'column',
-      background: '#1c1c1c',
+      background: '#111111',
       border: '1px solid rgba(255,255,255,0.07)',
       borderRadius: 16,
       padding: '20px',
@@ -71,7 +71,7 @@ function Card({ t }) {
           width: 34, height: 34, borderRadius: '50%',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: 13, fontWeight: 900, flexShrink: 0,
-          background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#141414',
+          background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#111111',
         }}>{initial}</div>
         <div>
           <div style={{ color: '#fff', fontWeight: 600, fontSize: 13 }}>
@@ -92,8 +92,6 @@ export default function Testimonials() {
 
   return (
     <section id="temoignages" className="py-16 sm:py-24 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 70% 40% at 50% 0%, rgba(212,175,55,0.04), transparent)' }} />
 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">

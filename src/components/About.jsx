@@ -14,10 +14,7 @@ export default function About() {
   const { memberCount } = useWhopStats()
 
   return (
-    <section id="parcours" className="py-16 sm:py-24 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 50% 60% at 30% 50%, rgba(212,175,55,0.04), transparent)' }} />
-
+    <section id="parcours" className="py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
@@ -42,7 +39,7 @@ export default function About() {
                 draggable="false"
               />
               <div className="absolute inset-0 pointer-events-none"
-                style={{ background: 'linear-gradient(to top, rgba(20,20,20,0.6) 0%, transparent 40%)' }} />
+                style={{ background: 'linear-gradient(to top, rgba(17,17,17,0.6) 0%, transparent 40%)' }} />
             </div>
           </motion.div>
 
@@ -101,7 +98,7 @@ export default function About() {
                       {/* Icon circle */}
                       <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 relative z-10"
                         style={{
-                          background: '#141414',
+                          background: '#111111',
                           border: `2px solid ${m.color}`,
                           boxShadow: `0 0 ${isLatest ? 20 : 10}px ${m.color}${isLatest ? '50' : '25'}`,
                         }}>

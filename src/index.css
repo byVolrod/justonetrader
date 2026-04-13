@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-dark: #141414;
-  --color-dark-card: #12121a;
-  --color-dark-border: #1e1e2e;
+  --color-dark: #111111;
+  --color-dark-card: #0d0d10;
+  --color-dark-border: #1a1a22;
   --color-gold: #d4af37;
   --color-gold-light: #e8c94a;
   --color-profit: #10b981;
@@ -22,7 +22,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #141414;
+  background-color: #0c0c0c;
   color: #ffffff;
   font-family: "Plus Jakarta Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -32,18 +32,6 @@ body {
 }
 
 
-/* Grain overlay */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9998;
-  opacity: 0.032;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 200px 200px;
-}
 
 /* GPU acceleration pour les sections animées */
 section {
@@ -99,7 +87,7 @@ section {
 
 ::selection {
   background-color: #d4af37;
-  color: #141414;
+  color: #111111;
 }
 
 ::-webkit-scrollbar {
@@ -107,7 +95,7 @@ section {
 }
 
 ::-webkit-scrollbar-track {
-  background: #141414;
+  background: #111111;
 }
 
 ::-webkit-scrollbar-thumb {

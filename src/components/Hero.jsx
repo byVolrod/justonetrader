@@ -8,15 +8,7 @@ export default function Hero() {
   const { memberCount } = useWhopStats()
 
   return (
-    <section id="accueil" className="relative min-h-[92vh] flex items-center pt-20 pb-10 overflow-hidden">
-      {/* Background glows */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/3 w-[700px] h-[400px] rounded-full blur-[140px]"
-          style={{ background: 'rgba(212,175,55,0.06)' }} />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[300px] rounded-full blur-[120px]"
-          style={{ background: 'rgba(16,185,129,0.04)' }} />
-      </div>
-
+    <section id="accueil" className="relative min-h-[92vh] flex items-center pt-20 pb-10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full text-center">
 
 
@@ -90,6 +82,7 @@ export default function Hero() {
           </motion.div>
 
       </div>
+
     </section>
   )
 }

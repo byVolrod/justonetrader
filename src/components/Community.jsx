@@ -85,7 +85,7 @@ function Lightbox({ item, onClose }) {
         >
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3"
-            style={{ background: 'rgba(20,20,20,0.95)', borderBottom: `1px solid ${item.accentColor}20` }}>
+            style={{ background: 'rgba(17,17,17,0.95)', borderBottom: `1px solid ${item.accentColor}20` }}>
             <div className="flex items-center gap-2">
               <Hash size={14} style={{ color: 'rgba(255,255,255,0.35)' }} />
               <span className="text-sm font-semibold text-white">{item.channel}</span>
@@ -98,7 +98,7 @@ function Lightbox({ item, onClose }) {
           <img src={item.src} alt={item.label} className="w-full object-contain"
             style={{ maxHeight: '75vh', background: '#0a0a0a' }} draggable="false" />
           <div className="px-4 py-3 text-sm font-medium text-white/70"
-            style={{ background: 'rgba(20,20,20,0.95)' }}>
+            style={{ background: 'rgba(17,17,17,0.95)' }}>
             {item.label} — {item.desc}
           </div>
         </motion.div>
@@ -112,12 +112,7 @@ export default function Community() {
   const [selected, setSelected] = useState(null)
 
   return (
-    <section id="communaute" className="py-16 sm:py-24 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(88,101,242,0.04), transparent)' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.03) 0%, transparent 70%)' }} />
-
+    <section id="communaute" className="py-16 sm:py-24">
       {/* Lightbox */}
       {selected && <Lightbox item={selected} onClose={() => setSelected(null)} />}
 
@@ -165,7 +160,7 @@ export default function Community() {
               <motion.div
                 key={item.channel}
                 className="rounded-2xl overflow-hidden group relative cursor-zoom-in"
-                style={{ border: '1px solid rgba(255,255,255,0.07)', background: '#1c1c1c' }}
+                style={{ border: '1px solid rgba(255,255,255,0.07)', background: '#111111' }}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -196,7 +191,7 @@ export default function Community() {
                     style={{ objectPosition: item.objectPosition }}
                     loading="lazy" draggable="false" />
                   <div className="absolute inset-0 pointer-events-none"
-                    style={{ background: 'linear-gradient(to top, #1c1c1c 0%, rgba(14,14,24,0.2) 60%, transparent 100%)' }} />
+                    style={{ background: 'linear-gradient(to top, #111111 0%, rgba(14,14,24,0.2) 60%, transparent 100%)' }} />
                   {/* Zoom hint */}
                   <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity text-[10px] font-semibold px-2 py-1 rounded-full"
                     style={{ background: 'rgba(0,0,0,0.7)', color: 'rgba(255,255,255,0.7)' }}>

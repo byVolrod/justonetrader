@@ -5,7 +5,7 @@ import AnimatedNumber from './AnimatedNumber'
 
 const getMilestones = (memberCount) => [
   { icon: Flame, year: '2021', label: 'Premiers pas dans la finance', desc: '3 ans à tester copytrading, robot trading et investissements passifs pour comprendre les marchés.', color: '#d4af37' },
-  { icon: Bitcoin, year: '2024', label: 'Investissement Crypto & premiers membres', desc: '1 mentor crypto, portefeuille moyen/long-terme. Accompagnement de mes premiers membres en suivant mes propres positions. 5.0★ dès le lancement sur Whop.', color: '#10b981' },
+  { icon: Bitcoin, year: '2024', label: 'Investissement Crypto & premiers membres', desc: 'Formation auprès d\'un mentor crypto, puis accompagnement de mes premiers membres.', color: '#10b981' },
   { icon: TrendingUp, year: '2025', label: 'Deux mentors, une méthode', desc: '2 mentors trading, analyse technique et fondamentale. Construction d\'une approche complète des marchés, du graphique au macro.', color: '#d4af37' },
   { icon: Users, year: '2026', label: 'Lancement de la communauté JustOneTrader', desc: `Création et lancement de la communauté. +${memberCount} membres actifs, 0 résultat caché. Chaque trade partagé avant et après en transparence totale.`, color: '#10b981' },
 ]

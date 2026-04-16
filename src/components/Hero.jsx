@@ -232,11 +232,6 @@ export default function Hero() {
               Live
             </div>
 
-            {/* Rating badge */}
-            <div className="absolute -bottom-3.5 -left-3.5 flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold z-10"
-              style={{ background: '#0a0a0a', border: '1px solid rgba(212,175,55,0.3)', color: 'rgba(255,255,255,0.9)', boxShadow: '0 0 20px rgba(212,175,55,0.1)' }}>
-              <span style={{ color: '#d4af37' }}>★</span> 5.0 · +{memberCount} membres
-            </div>
           </motion.div>
 
         </div>

@@ -252,23 +252,37 @@ export default function Hero() {
                     <button
                       key={i}
                       onClick={() => setCurrent(i)}
-                      className="relative flex-1 flex flex-col items-center justify-center gap-0.5 py-3 transition-colors duration-200"
+                      className="relative flex-1 flex flex-col items-center justify-center gap-0.5 py-3"
                       style={{
-                        background: i === current ? '#181818' : 'transparent',
+                        background: 'transparent',
                         borderRight: i < VIDEOS.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                         cursor: 'pointer',
                       }}
                     >
+                      {/* Sliding active background */}
                       {i === current && (
-                        <span className="absolute top-0 inset-x-0 h-[2px]"
-                          style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)' }} />
+                        <motion.div
+                          layoutId="tabActiveBg"
+                          className="absolute inset-0"
+                          style={{ background: '#181818' }}
+                          transition={{ type: 'spring', stiffness: 500, damping: 45, mass: 0.8 }}
+                        />
                       )}
-                      <span className="text-[9px] font-black tracking-[0.12em] uppercase"
-                        style={{ color: i === current ? '#d4af37' : 'rgba(255,255,255,0.18)' }}>
+                      {/* Sliding gold top bar */}
+                      {i === current && (
+                        <motion.div
+                          layoutId="tabActiveBar"
+                          className="absolute top-0 inset-x-0 h-[2px]"
+                          style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)' }}
+                          transition={{ type: 'spring', stiffness: 500, damping: 45, mass: 0.8 }}
+                        />
+                      )}
+                      <span className="relative z-10 text-[9px] font-black tracking-[0.12em] uppercase"
+                        style={{ color: i === current ? '#d4af37' : 'rgba(255,255,255,0.18)', transition: 'color 0.2s' }}>
                         {v.tag}
                       </span>
-                      <span className="text-[10px] font-medium"
-                        style={{ color: i === current ? 'rgba(255,255,255,0.55)' : 'rgba(255,255,255,0.15)' }}>
+                      <span className="relative z-10 text-[10px] font-medium"
+                        style={{ color: i === current ? 'rgba(255,255,255,0.55)' : 'rgba(255,255,255,0.15)', transition: 'color 0.2s' }}>
                         {v.label}
                       </span>
                     </button>

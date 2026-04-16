@@ -17,17 +17,35 @@ export default function Hero() {
   const [current, setCurrent] = useState(0)
   const [progress, setProgress] = useState(0)
   const progressRef = useRef(null)
-  const startRef = useRef(Date.now())
+  const videoRef = useRef(null)
+  const elapsedRef = useRef(0)
+  const lastTickRef = useRef(null)
 
   useEffect(() => {
-    startRef.current = Date.now()
+    elapsedRef.current = 0
+    lastTickRef.current = null
     setProgress(0)
+
     const tick = () => {
-      const elapsed = Date.now() - startRef.current
-      setProgress(Math.min((elapsed / INTERVAL) * 100, 100))
-      if (elapsed < INTERVAL) progressRef.current = requestAnimationFrame(tick)
-      else setCurrent(c => (c + 1) % VIDEOS.length)
+      const video = videoRef.current
+      const now = Date.now()
+      const isPlaying = video && !video.paused && !video.waiting && video.readyState >= 2
+
+      if (isPlaying && lastTickRef.current !== null) {
+        elapsedRef.current += now - lastTickRef.current
+      }
+      lastTickRef.current = isPlaying ? now : null
+
+      const pct = Math.min((elapsedRef.current / INTERVAL) * 100, 100)
+      setProgress(pct)
+
+      if (elapsedRef.current < INTERVAL) {
+        progressRef.current = requestAnimationFrame(tick)
+      } else {
+        setCurrent(c => (c + 1) % VIDEOS.length)
+      }
     }
+
     progressRef.current = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(progressRef.current)
   }, [current])
@@ -232,6 +250,7 @@ export default function Hero() {
                   <AnimatePresence mode="wait">
                     <motion.video
                       key={current}
+                      ref={videoRef}
                       src={VIDEOS[current].src}
                       autoPlay muted loop={false} playsInline disablePictureInPicture
                       className="w-full block"

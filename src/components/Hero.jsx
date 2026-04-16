@@ -7,8 +7,7 @@ import AnimatedNumber from './AnimatedNumber'
 const VIDEOS = [
   { src: '/video-discord.mp4',  label: 'Membres actifs',         tag: 'Communauté' },
   { src: '/video-fonda.mp4',    label: 'Analyse fondamentale',   tag: 'Fondamentaux' },
-  // Ajoute ta 3ème vidéo ici :
-  // { src: '/video-analyses.mp4', label: 'Mes analyses en direct', tag: 'Analyses' },
+  { src: '/video-jot.mp4',      label: 'Mes analyses en direct',  tag: 'Analyses' },
 ]
 
 const INTERVAL = 6000

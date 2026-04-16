@@ -191,10 +191,22 @@ export default function Hero() {
                     discord.com — JustOneTrader
                   </div>
                   {/* LIVE */}
-                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full shrink-0"
-                    style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.22)' }}>
-                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#10b981' }} />
-                    <span className="text-[10px] font-bold tracking-wide" style={{ color: '#10b981' }}>LIVE</span>
+                  <div
+                    className="flex items-center gap-1.5 px-2.5 py-1 rounded-full shrink-0 transition-all duration-300 cursor-default"
+                    style={{ background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.3)', boxShadow: '0 0 10px rgba(16,185,129,0.15)' }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.background = 'rgba(16,185,129,0.22)'
+                      e.currentTarget.style.boxShadow = '0 0 20px rgba(16,185,129,0.4)'
+                      e.currentTarget.style.borderColor = 'rgba(16,185,129,0.55)'
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.background = 'rgba(16,185,129,0.12)'
+                      e.currentTarget.style.boxShadow = '0 0 10px rgba(16,185,129,0.15)'
+                      e.currentTarget.style.borderColor = 'rgba(16,185,129,0.3)'
+                    }}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#10b981', boxShadow: '0 0 4px #10b981' }} />
+                    <span className="text-[10px] font-black tracking-widest" style={{ color: '#10b981' }}>LIVE</span>
                   </div>
                 </div>
 

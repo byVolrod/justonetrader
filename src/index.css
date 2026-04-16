@@ -112,8 +112,19 @@ img {
   -webkit-user-drag: none;
 }
 
-/* Optimisation rendu des images */
+/* Qualité maximale des images */
 img {
   image-rendering: auto;
-  content-visibility: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Qualité vidéo */
+video {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  image-rendering: auto;
 }

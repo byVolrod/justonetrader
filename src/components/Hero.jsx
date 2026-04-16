@@ -41,7 +41,7 @@ export default function Hero() {
   return (
     <section id="accueil" className="relative min-h-[92vh] flex items-center pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
-        <div className="grid lg:grid-cols-[3fr_2fr] gap-12 lg:gap-10 items-center">
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-10 items-center">
 
           {/* ── Text side ── */}
           <div>
@@ -122,36 +122,46 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.4 }}
           >
-            {/* Glow */}
-            <div className="absolute -inset-6 rounded-3xl blur-3xl pointer-events-none"
-              style={{ background: 'radial-gradient(ellipse, rgba(212,175,55,0.1) 0%, transparent 70%)' }} />
+            {/* Multi-layer glow */}
+            <div className="absolute -inset-8 rounded-3xl blur-3xl pointer-events-none"
+              style={{ background: 'radial-gradient(ellipse at 60% 50%, rgba(212,175,55,0.14) 0%, transparent 65%)' }} />
+            <div className="absolute -inset-4 rounded-3xl blur-xl pointer-events-none"
+              style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.07) 0%, transparent 70%)' }} />
+
+            {/* Outer ring décoratif */}
+            <div className="absolute -inset-px rounded-2xl pointer-events-none"
+              style={{ background: 'linear-gradient(135deg, rgba(212,175,55,0.3) 0%, transparent 50%, rgba(212,175,55,0.1) 100%)', zIndex: 1 }} />
 
             {/* Card */}
             <div className="relative rounded-2xl overflow-hidden"
               style={{
-                border: '1px solid rgba(212,175,55,0.2)',
-                boxShadow: '0 0 0 1px rgba(255,255,255,0.04), 0 30px 60px rgba(0,0,0,0.6)',
+                border: '1px solid rgba(212,175,55,0.25)',
+                boxShadow: '0 0 0 1px rgba(255,255,255,0.03), 0 40px 80px rgba(0,0,0,0.7), 0 0 60px rgba(212,175,55,0.06)',
               }}>
 
               {/* Top bar */}
-              <div className="flex items-center gap-2 px-4 py-2.5"
-                style={{ background: '#1a1a1a', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+              <div className="flex items-center justify-between gap-2 px-4 py-3"
+                style={{ background: '#141414', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
                 <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ef4444' }} />
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#f59e0b' }} />
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#22c55e' }} />
+                  <div className="w-3 h-3 rounded-full" style={{ background: '#ef4444' }} />
+                  <div className="w-3 h-3 rounded-full" style={{ background: '#f59e0b' }} />
+                  <div className="w-3 h-3 rounded-full" style={{ background: '#22c55e' }} />
                 </div>
-                <div className="flex-1 mx-3 rounded px-3 py-0.5 text-[11px] text-center truncate"
-                  style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.25)' }}>
+                <div className="flex-1 mx-4 rounded-md px-3 py-1 text-[11px] text-center truncate"
+                  style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.3)' }}>
                   discord.com — JustOneTrader
                 </div>
+                {/* Compteur vidéo */}
+                <span className="text-[11px] font-bold tabular-nums shrink-0" style={{ color: 'rgba(212,175,55,0.7)' }}>
+                  {current + 1}/{VIDEOS.length}
+                </span>
               </div>
 
-              {/* Progress bar */}
-              <div className="h-0.5 w-full" style={{ background: 'rgba(255,255,255,0.06)' }}>
-                <div
-                  className="h-full transition-none"
-                  style={{ width: `${progress}%`, background: 'linear-gradient(90deg, #d4af37, #fef08a)' }}
+              {/* Progress bar dorée */}
+              <div className="h-[3px] w-full" style={{ background: 'rgba(255,255,255,0.05)' }}>
+                <motion.div
+                  className="h-full rounded-full"
+                  style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)', width: `${progress}%` }}
                 />
               </div>
 
@@ -171,65 +181,84 @@ export default function Hero() {
                     disablePictureInPicture
                     className="w-full block"
                     style={{ pointerEvents: 'none' }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4 }}
+                    initial={{ opacity: 0, scale: 1.02 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.5 }}
                   />
                 </AnimatePresence>
 
                 {/* Security overlay */}
-                <div
-                  className="absolute inset-0"
-                  onContextMenu={e => e.preventDefault()}
-                  style={{ background: 'transparent', userSelect: 'none' }}
-                />
+                <div className="absolute inset-0" onContextMenu={e => e.preventDefault()}
+                  style={{ background: 'transparent', userSelect: 'none' }} />
 
                 {/* Bottom fade */}
-                <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
-                  style={{ background: 'linear-gradient(to top, rgba(17,17,17,0.75) 0%, transparent 100%)' }} />
+                <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+                  style={{ background: 'linear-gradient(to top, rgba(14,14,14,0.9) 0%, transparent 100%)' }} />
 
-                {/* Current label */}
-                <div className="absolute bottom-3 left-3 flex items-center gap-2">
-                  <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full"
-                    style={{ background: 'rgba(212,175,55,0.15)', border: '1px solid rgba(212,175,55,0.3)', color: '#d4af37' }}>
-                    {VIDEOS[current].tag}
-                  </span>
-                  <span className="text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                    {VIDEOS[current].label}
-                  </span>
+                {/* Tag + label */}
+                <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={current + 'tag'}
+                      className="text-[11px] font-bold px-2.5 py-1 rounded-full"
+                      style={{ background: 'rgba(212,175,55,0.18)', border: '1px solid rgba(212,175,55,0.4)', color: '#d4af37' }}
+                      initial={{ opacity: 0, y: 4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {VIDEOS[current].tag}
+                    </motion.span>
+                  </AnimatePresence>
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={current + 'label'}
+                      className="text-xs font-medium"
+                      style={{ color: 'rgba(255,255,255,0.7)' }}
+                      initial={{ opacity: 0, x: -6 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3, delay: 0.05 }}
+                    >
+                      {VIDEOS[current].label}
+                    </motion.span>
+                  </AnimatePresence>
                 </div>
               </div>
 
-              {/* Dot navigation */}
-              <div className="flex items-center justify-center gap-2 py-2.5"
-                style={{ background: '#1a1a1a', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                {VIDEOS.map((_, i) => (
+              {/* Bottom nav avec tabs */}
+              <div className="flex items-center justify-between px-4 py-3 gap-3"
+                style={{ background: '#141414', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                {VIDEOS.map((v, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
-                    className="rounded-full transition-all duration-300"
+                    className="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all duration-300"
                     style={{
-                      width: i === current ? '20px' : '6px',
-                      height: '6px',
-                      background: i === current ? '#d4af37' : 'rgba(255,255,255,0.2)',
+                      background: i === current ? 'rgba(212,175,55,0.12)' : 'transparent',
+                      border: i === current ? '1px solid rgba(212,175,55,0.3)' : '1px solid transparent',
+                      color: i === current ? '#d4af37' : 'rgba(255,255,255,0.3)',
                     }}
-                    aria-label={`Vidéo ${i + 1}`}
-                  />
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full shrink-0"
+                      style={{ background: i === current ? '#d4af37' : 'rgba(255,255,255,0.2)' }} />
+                    {v.tag}
+                  </button>
                 ))}
               </div>
             </div>
 
             {/* Live badge */}
-            <div className="absolute -top-3 -right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold z-10"
-              style={{ background: '#0f0f0f', border: '1px solid rgba(16,185,129,0.35)', color: '#10b981', boxShadow: '0 0 16px rgba(16,185,129,0.15)' }}>
-              <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#10b981', animation: 'pulse 1.5s ease-in-out infinite' }} />
+            <div className="absolute -top-3.5 -right-3.5 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold z-10"
+              style={{ background: '#0a0a0a', border: '1px solid rgba(16,185,129,0.4)', color: '#10b981', boxShadow: '0 0 20px rgba(16,185,129,0.2)' }}>
+              <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#10b981' }} />
               Live
             </div>
 
-            {/* Members badge */}
-            <div className="absolute -bottom-3 -left-3 flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold z-10"
-              style={{ background: '#0f0f0f', border: '1px solid rgba(212,175,55,0.25)', color: 'rgba(255,255,255,0.85)', boxShadow: '0 0 16px rgba(212,175,55,0.08)' }}>
+            {/* Rating badge */}
+            <div className="absolute -bottom-3.5 -left-3.5 flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold z-10"
+              style={{ background: '#0a0a0a', border: '1px solid rgba(212,175,55,0.3)', color: 'rgba(255,255,255,0.9)', boxShadow: '0 0 20px rgba(212,175,55,0.1)' }}>
               <span style={{ color: '#d4af37' }}>★</span> 5.0 · +{memberCount} membres
             </div>
           </motion.div>

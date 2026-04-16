@@ -10,12 +10,12 @@ export default function Hero() {
   return (
     <section id="accueil" className="relative min-h-[92vh] flex items-center pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[3fr_2fr] gap-12 lg:gap-10 items-center">
 
           {/* Text side */}
           <div>
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black leading-[1.04] mb-6"
+              className="text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-black leading-[1.04] mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}

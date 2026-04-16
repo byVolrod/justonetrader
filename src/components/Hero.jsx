@@ -21,7 +21,7 @@ export default function Hero() {
             Tu trades seul.
             <br />Tu n'avances plus.
             <br />
-            <span style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            <span className="whitespace-nowrap" style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               Rejoins la communauté.
             </span>
           </motion.h1>

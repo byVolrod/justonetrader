@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ShieldCheck, Star, Users } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Star, TrendingUp } from 'lucide-react'
 import { useWhopStats } from '../hooks/useWhopStats'
 import AnimatedNumber from './AnimatedNumber'
 
 const VIDEOS = [
-  { src: '/video-discord.mp4', label: 'Membres actifs',        tag: 'Communauté' },
-  { src: '/video-fonda.mp4',   label: 'Analyse fondamentale',  tag: 'Fondamentaux' },
+  { src: '/video-discord.mp4', label: 'Membres actifs',         tag: 'Communauté' },
+  { src: '/video-fonda.mp4',   label: 'Analyse fondamentale',   tag: 'Fondamentaux' },
   { src: '/video-jot.mp4',     label: 'Mes analyses en direct', tag: 'Analyses' },
 ]
 
@@ -35,28 +35,47 @@ export default function Hero() {
   return (
     <section id="accueil" className="relative min-h-[92vh] flex items-center pt-20 pb-16 overflow-hidden">
 
-      {/* Subtle bg glow — left behind text */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.04) 0%, transparent 70%)', filter: 'blur(40px)' }} />
+      {/* Ambient glow */}
+      <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-[700px] h-[700px] pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.035) 0%, transparent 65%)' }} />
+      <div className="absolute right-0 top-1/3 w-[500px] h-[500px] pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.025) 0%, transparent 65%)' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-14 items-center">
 
-          {/* ── LEFT — Text ── */}
+          {/* ── LEFT ── */}
           <div className="flex flex-col">
+
+            {/* Live indicator pill */}
+            <motion.div
+              className="flex items-center gap-2 self-start mb-7"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full"
+                style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.18)', color: '#10b981' }}>
+                <span className="pulse-dot w-1.5 h-1.5 rounded-full shrink-0" style={{ background: '#10b981', boxShadow: '0 0 6px #10b981' }} />
+                <AnimatedNumber value={memberCount} prefix="+" className="font-bold text-white" duration={1800} />
+                &nbsp;membres actifs
+              </span>
+            </motion.div>
 
             {/* H1 */}
             <motion.h1
-              className="text-[2.6rem] md:text-5xl lg:text-[2.75rem] xl:text-5xl 2xl:text-6xl font-black leading-[1.06] mb-5"
-              initial={{ opacity: 0, y: 16 }}
+              className="font-black leading-[1.06] mb-6"
+              style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)' }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.08 }}
+              transition={{ duration: 0.65, delay: 0.08 }}
             >
-              Tu trades seul.
-              <br />Tu n'avances plus.
+              <span style={{ color: 'rgba(255,255,255,0.92)' }}>Tu trades seul.</span>
+              <br />
+              <span style={{ color: 'rgba(255,255,255,0.75)' }}>Tu n'avances plus.</span>
               <br />
               <span style={{
-                background: 'linear-gradient(90deg, #d4af37 0%, #fef08a 60%, #d4af37 100%)',
+                background: 'linear-gradient(90deg, #d4af37 0%, #fef08a 50%, #c9a227 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -67,11 +86,11 @@ export default function Hero() {
 
             {/* Subtitle */}
             <motion.p
-              className="text-base sm:text-lg leading-relaxed mb-8 max-w-md"
-              style={{ color: 'rgba(255,255,255,0.58)' }}
+              className="text-base sm:text-[1.05rem] leading-relaxed mb-9 max-w-sm"
+              style={{ color: 'rgba(255,255,255,0.5)' }}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.16 }}
+              transition={{ duration: 0.6, delay: 0.18 }}
             >
               Résultats réels, transparence totale et une communauté qui trade vraiment.
             </motion.p>
@@ -81,106 +100,120 @@ export default function Hero() {
               className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-10"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.24 }}
+              transition={{ duration: 0.6, delay: 0.26 }}
             >
               <motion.a
                 href="https://whop.com/justonetrader"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5 font-bold rounded-xl px-7 py-3.5 text-sm"
+                className="group relative inline-flex items-center gap-2.5 font-bold rounded-xl px-7 py-3.5 text-sm overflow-hidden"
                 style={{
-                  background: 'linear-gradient(135deg, #d4af37, #e8c94a)',
+                  background: 'linear-gradient(135deg, #c9a227, #e8c94a, #d4af37)',
                   color: '#0a0a0f',
-                  boxShadow: '0 0 32px rgba(212,175,55,0.25), 0 1px 0 rgba(255,255,255,0.2) inset',
+                  boxShadow: '0 0 28px rgba(212,175,55,0.3), 0 1px 0 rgba(255,255,255,0.25) inset',
                 }}
-                whileHover={{ scale: 1.03, boxShadow: '0 0 50px rgba(212,175,55,0.45)' }}
+                whileHover={{ scale: 1.03, boxShadow: '0 0 48px rgba(212,175,55,0.5)' }}
                 whileTap={{ scale: 0.97 }}
               >
                 Commencer gratuitement
-                <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+                <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-200" />
               </motion.a>
 
               <a
                 href="#communaute"
-                className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-3.5 rounded-xl transition-all duration-200"
+                className="inline-flex items-center gap-1.5 text-sm font-medium px-5 py-3.5 rounded-xl transition-all duration-200"
                 style={{
-                  color: 'rgba(255,255,255,0.5)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  background: 'rgba(255,255,255,0.03)',
+                  color: 'rgba(255,255,255,0.45)',
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  background: 'rgba(255,255,255,0.02)',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.color = '#d4af37'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.25)' }}
-                onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)' }}
+                onMouseEnter={e => { e.currentTarget.style.color = '#d4af37'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.22)' }}
+                onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.45)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)' }}
               >
                 Voir la communauté
-                <ArrowRight size={13} />
+                <ArrowRight size={12} />
               </a>
             </motion.div>
 
-            {/* Trust bar */}
+            {/* Trust row */}
             <motion.div
-              className="flex flex-wrap items-center gap-4"
+              className="flex flex-wrap items-center gap-5 pt-6"
+              style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.42 }}
             >
-              {[
-                { icon: Star, text: '5.0★ sur Whop', color: '#d4af37' },
-                { icon: ShieldCheck, text: 'Sans engagement', color: '#10b981' },
-                { icon: Users, text: 'Accès gratuit', color: 'rgba(255,255,255,0.45)' },
-              ].map(({ icon: Icon, text, color }, i) => (
-                <div key={text} className="flex items-center gap-1.5 text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                  <Icon size={12} style={{ color }} />
-                  {text}
-                </div>
-              ))}
+              <div className="flex items-center gap-1.5 text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                <Star size={11} fill="#d4af37" style={{ color: '#d4af37' }} />
+                <span><span className="text-white font-semibold">5.0</span> sur Whop</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                <ShieldCheck size={11} style={{ color: '#10b981' }} />
+                Sans engagement
+              </div>
+              <div className="flex items-center gap-1.5 text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                <TrendingUp size={11} style={{ color: '#d4af37' }} />
+                Accès gratuit immédiat
+              </div>
             </motion.div>
           </div>
 
-          {/* ── RIGHT — Video carousel ── */}
+          {/* ── RIGHT — Video ── */}
           <motion.div
-            className="relative hidden lg:flex flex-col"
-            initial={{ opacity: 0, y: 24 }}
+            className="relative hidden lg:block"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.85, delay: 0.28 }}
           >
-            {/* Glow behind card */}
-            <div className="absolute -inset-10 pointer-events-none"
-              style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.09) 0%, transparent 65%)', filter: 'blur(20px)' }} />
+            {/* Outer glow */}
+            <div className="absolute -inset-12 pointer-events-none"
+              style={{ background: 'radial-gradient(ellipse at 55% 50%, rgba(212,175,55,0.1) 0%, transparent 60%)' }} />
 
-            {/* Gradient border wrapper */}
-            <div className="relative rounded-[18px] p-px"
-              style={{ background: 'linear-gradient(145deg, rgba(212,175,55,0.4) 0%, rgba(212,175,55,0.05) 40%, rgba(212,175,55,0.15) 100%)' }}>
+            {/* Gradient border */}
+            <div className="relative rounded-[20px] p-px"
+              style={{ background: 'linear-gradient(160deg, rgba(212,175,55,0.5) 0%, rgba(212,175,55,0.08) 35%, rgba(212,175,55,0.0) 60%, rgba(212,175,55,0.2) 100%)' }}>
 
-              {/* Card inner */}
-              <div className="rounded-[17px] overflow-hidden"
-                style={{ background: '#111', boxShadow: '0 32px 80px rgba(0,0,0,0.6)' }}>
+              <div className="rounded-[19px] overflow-hidden"
+                style={{ background: '#0f0f0f', boxShadow: '0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.02)' }}>
 
-                {/* Top bar */}
-                <div className="flex items-center justify-between px-4 py-3"
-                  style={{ background: '#161616', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ef4444', opacity: 0.85 }} />
-                    <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#f59e0b', opacity: 0.85 }} />
-                    <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#22c55e', opacity: 0.85 }} />
+                {/* ── Top bar ── */}
+                <div className="flex items-center gap-3 px-4 py-3"
+                  style={{ background: '#181818', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  {/* Dots */}
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    {['#ef4444','#f59e0b','#22c55e'].map(c => (
+                      <div key={c} className="w-3 h-3 rounded-full" style={{ background: c, opacity: 0.8 }} />
+                    ))}
                   </div>
-                  <div className="flex-1 mx-4 rounded-md px-3 py-1 text-[11px] text-center"
-                    style={{ background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.22)', letterSpacing: '0.01em' }}>
+                  {/* URL */}
+                  <div className="flex-1 rounded-md px-3 py-1 text-center text-[11px]"
+                    style={{ background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.2)' }}>
                     discord.com — JustOneTrader
                   </div>
-                  {/* Live pill */}
+                  {/* LIVE */}
                   <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full shrink-0"
-                    style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)' }}>
+                    style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.22)' }}>
                     <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#10b981' }} />
-                    <span className="text-[10px] font-bold" style={{ color: '#10b981' }}>LIVE</span>
+                    <span className="text-[10px] font-bold tracking-wide" style={{ color: '#10b981' }}>LIVE</span>
                   </div>
                 </div>
 
-                {/* Progress bar */}
-                <div className="h-[2px] w-full" style={{ background: 'rgba(255,255,255,0.04)' }}>
-                  <div className="h-full" style={{ width: `${progress}%`, background: 'linear-gradient(90deg, #d4af37, #fef08a)', transition: 'none' }} />
+                {/* ── Story-style progress bars ── */}
+                <div className="flex gap-1 px-3 py-2" style={{ background: '#181818' }}>
+                  {VIDEOS.map((_, i) => (
+                    <div key={i} className="flex-1 h-[3px] rounded-full overflow-hidden"
+                      style={{ background: 'rgba(255,255,255,0.08)' }}>
+                      <div className="h-full rounded-full"
+                        style={{
+                          background: 'linear-gradient(90deg, #d4af37, #fef08a)',
+                          width: i < current ? '100%' : i === current ? `${progress}%` : '0%',
+                          transition: i === current ? 'none' : 'width 0.3s ease',
+                        }} />
+                    </div>
+                  ))}
                 </div>
 
-                {/* Video */}
+                {/* ── Video ── */}
                 <div className="relative select-none" onContextMenu={e => e.preventDefault()}>
                   <AnimatePresence mode="wait">
                     <motion.video
@@ -188,66 +221,66 @@ export default function Hero() {
                       src={VIDEOS[current].src}
                       autoPlay muted loop={false} playsInline disablePictureInPicture
                       className="w-full block"
-                      style={{ pointerEvents: 'none', aspectRatio: '16/9', objectFit: 'cover' }}
+                      style={{ pointerEvents: 'none', display: 'block' }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4 }}
+                      transition={{ duration: 0.35 }}
                     />
                   </AnimatePresence>
-                  {/* Security overlay */}
                   <div className="absolute inset-0" onContextMenu={e => e.preventDefault()}
                     style={{ userSelect: 'none' }} />
                 </div>
 
-                {/* Tab nav */}
-                <div className="flex items-stretch" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', background: '#111' }}>
-                  <div className="flex-1 grid gap-px" style={{ gridTemplateColumns: `repeat(${VIDEOS.length}, 1fr)`, background: 'rgba(255,255,255,0.05)' }}>
-                    {VIDEOS.map((v, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setCurrent(i)}
-                        className="relative flex flex-col items-center justify-center gap-0.5 py-3 transition-all duration-250"
-                        style={{
-                          background: i === current ? '#161616' : '#111',
-                          cursor: 'pointer',
-                        }}
-                      >
-                        {i === current && (
-                          <span className="absolute top-0 inset-x-0 h-[2px]"
-                            style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)' }} />
-                        )}
-                        <span className="text-[9px] font-black tracking-widest uppercase"
-                          style={{ color: i === current ? '#d4af37' : 'rgba(255,255,255,0.2)' }}>
-                          {v.tag}
-                        </span>
-                        <span className="text-[10px] font-medium"
-                          style={{ color: i === current ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.18)' }}>
-                          {v.label}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Counter — intégré dans la barre */}
-                  <div className="flex items-center justify-center px-4"
-                    style={{ borderLeft: '1px solid rgba(255,255,255,0.05)', background: '#111', minWidth: 52 }}>
-                    <motion.span
-                      key={current}
-                      className="font-black text-xs tabular-nums"
-                      style={{ color: '#d4af37', letterSpacing: '0.05em' }}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.2 }}
+                {/* ── Tab nav ── */}
+                <div className="flex items-stretch" style={{ background: '#0f0f0f', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                  {VIDEOS.map((v, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrent(i)}
+                      className="relative flex-1 flex flex-col items-center justify-center gap-0.5 py-3 transition-colors duration-200"
+                      style={{
+                        background: i === current ? '#181818' : 'transparent',
+                        borderRight: i < VIDEOS.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
+                        cursor: 'pointer',
+                      }}
                     >
-                      {current + 1} / {VIDEOS.length}
-                    </motion.span>
+                      {i === current && (
+                        <span className="absolute top-0 inset-x-0 h-[2px]"
+                          style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)' }} />
+                      )}
+                      <span className="text-[9px] font-black tracking-[0.12em] uppercase"
+                        style={{ color: i === current ? '#d4af37' : 'rgba(255,255,255,0.18)' }}>
+                        {v.tag}
+                      </span>
+                      <span className="text-[10px] font-medium"
+                        style={{ color: i === current ? 'rgba(255,255,255,0.55)' : 'rgba(255,255,255,0.15)' }}>
+                        {v.label}
+                      </span>
+                    </button>
+                  ))}
+
+                  {/* Counter */}
+                  <div className="flex items-center justify-center px-4 shrink-0"
+                    style={{ borderLeft: '1px solid rgba(255,255,255,0.04)' }}>
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={current}
+                        className="font-black text-xs tabular-nums"
+                        style={{ color: 'rgba(212,175,55,0.65)', letterSpacing: '0.06em' }}
+                        initial={{ opacity: 0, y: 4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -4 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {current + 1} / {VIDEOS.length}
+                      </motion.span>
+                    </AnimatePresence>
                   </div>
                 </div>
+
               </div>
             </div>
-
-
           </motion.div>
 
         </div>

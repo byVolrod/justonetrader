@@ -167,17 +167,11 @@ export default function Hero() {
                     style={{ background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.22)', letterSpacing: '0.01em' }}>
                     discord.com — JustOneTrader
                   </div>
-                  <div className="flex items-center gap-2 shrink-0">
-                    {/* Counter */}
-                    <span className="text-[11px] font-bold tabular-nums" style={{ color: 'rgba(212,175,55,0.6)' }}>
-                      {current + 1} / {VIDEOS.length}
-                    </span>
-                    {/* Live pill */}
-                    <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full"
-                      style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)' }}>
-                      <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#10b981' }} />
-                      <span className="text-[10px] font-bold" style={{ color: '#10b981' }}>LIVE</span>
-                    </div>
+                  {/* Live pill */}
+                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full shrink-0"
+                    style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.25)' }}>
+                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#10b981' }} />
+                    <span className="text-[10px] font-bold" style={{ color: '#10b981' }}>LIVE</span>
                   </div>
                 </div>
 

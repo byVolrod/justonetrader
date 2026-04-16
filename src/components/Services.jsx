@@ -72,9 +72,15 @@ export default function Services() {
                 boxShadow: `0 0 50px ${s.color}14`,
                 transition: { duration: 0.2 },
               }}
+              whileTap={{
+                y: -5,
+                borderColor: `${s.color}45`,
+                boxShadow: `0 0 50px ${s.color}14`,
+                transition: { duration: 0.15 },
+              }}
             >
               {/* Background glow on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"
                 style={{ background: `radial-gradient(ellipse at top left, ${s.color}08, transparent 60%)` }} />
 
               <div className="absolute -bottom-2 -right-1 text-[6rem] font-black pointer-events-none select-none leading-none"
@@ -83,7 +89,7 @@ export default function Services() {
               </div>
 
               <div className="flex items-start justify-between mb-5 relative">
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-active:scale-110"
                   style={{ background: `${s.color}14` }}>
                   <s.icon size={19} style={{ color: s.color }} />
                 </div>

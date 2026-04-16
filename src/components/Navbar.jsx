@@ -107,6 +107,8 @@ export default function Navbar() {
               style={{ background: 'linear-gradient(135deg, #d4af37, #e8c94a)', color: '#0a0a0f', boxShadow: '0 0 20px rgba(212,175,55,0.25)' }}
               onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 0 40px rgba(212,175,55,0.5)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 0 20px rgba(212,175,55,0.25)'; e.currentTarget.style.transform = 'translateY(0)' }}
+              onTouchStart={e => { e.currentTarget.style.boxShadow = '0 0 40px rgba(212,175,55,0.5)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+              onTouchEnd={e => { e.currentTarget.style.boxShadow = '0 0 20px rgba(212,175,55,0.25)'; e.currentTarget.style.transform = 'translateY(0)' }}
             >
               Rejoindre
             </a>

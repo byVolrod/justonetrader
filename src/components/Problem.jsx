@@ -67,6 +67,12 @@ export default function Problem() {
                 y: -4,
                 transition: { duration: 0.2 },
               }}
+              whileTap={{
+                borderColor: `${p.color}55`,
+                boxShadow: `0 0 40px ${p.color}14`,
+                y: -4,
+                transition: { duration: 0.15 },
+              }}
             >
               {/* Large background number */}
               <div className="absolute -bottom-3 -right-2 text-[5.5rem] font-black pointer-events-none select-none leading-none"

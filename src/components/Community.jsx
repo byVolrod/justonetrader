@@ -171,6 +171,12 @@ export default function Community() {
                   translateY: -4,
                   transition: { duration: 0.25 },
                 }}
+                whileTap={{
+                  borderColor: `${item.accentColor}30`,
+                  boxShadow: `0 8px 32px ${item.accentColor}10`,
+                  translateY: -4,
+                  transition: { duration: 0.15 },
+                }}
                 onClick={() => setSelected(item)}
               >
                 {/* Accent top bar */}

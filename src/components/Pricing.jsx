@@ -124,6 +124,12 @@ export default function Pricing() {
                 boxShadow: '0 0 30px rgba(255,255,255,0.04)',
                 transition: { duration: 0.2 },
               } : { y: -4, transition: { duration: 0.2 } }}
+              whileTap={!plan.popular && !plan.highlight ? {
+                y: -4,
+                borderColor: 'rgba(255,255,255,0.18)',
+                boxShadow: '0 0 30px rgba(255,255,255,0.04)',
+                transition: { duration: 0.15 },
+              } : { y: -4, transition: { duration: 0.15 } }}
             >
               {plan.popular && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-xs font-black px-4 py-1.5 rounded-full whitespace-nowrap"

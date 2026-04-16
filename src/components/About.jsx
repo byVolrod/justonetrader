@@ -5,9 +5,9 @@ import AnimatedNumber from './AnimatedNumber'
 
 const getMilestones = (memberCount) => [
   { icon: Flame, year: '2021', label: 'Premiers pas dans la finance', desc: 'Copytrading, DCA, ETF — 3 ans à tester, perdre, et comprendre les marchés sans raccourci.', color: '#d4af37' },
-  { icon: Bitcoin, year: '2024', label: 'Accompagnement Crypto', desc: 'Premiers membres accompagnés en investissement crypto moyen/long-terme. 5.0★ dès le lancement sur Whop.', color: '#10b981' },
-  { icon: TrendingUp, year: '2025', label: 'Formation Technique & Fondamentale', desc: 'Apprentissage avancé auprès de 3 mentors spécialisés — analyse technique, fondamentale et flux institutionnels.', color: '#d4af37' },
-  { icon: Users, year: '2026', label: 'JustOneTrader — en direct', desc: `+${memberCount} membres actifs, 0 résultat caché. Chaque trade partagé avant et après en transparence totale.`, color: '#10b981' },
+  { icon: Bitcoin, year: '2024', label: 'Investissement Crypto & premiers membres', desc: 'Formation auprès d\'un mentor crypto, puis accompagnement de mes premiers membres — investissement moyen/long-terme en suivant mes propres positions. 5.0★ dès le lancement sur Whop.', color: '#10b981' },
+  { icon: TrendingUp, year: '2025', label: 'Deux mentors, une méthode', desc: 'Un mentor en analyse technique pure, un second en analyse technique et fondamentale — double formation pour construire une approche complète des marchés, du graphique au macro.', color: '#d4af37' },
+  { icon: Users, year: '2026', label: 'Lancement de la communauté JustOneTrader', desc: `Création et lancement de la communauté — +${memberCount} membres actifs, 0 résultat caché. Chaque trade partagé avant et après en transparence totale.`, color: '#10b981' },
 ]
 
 export default function About() {

@@ -22,7 +22,7 @@ export default function Hero() {
             <br />Tu n'avances plus.
             <br />
             <span style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              Rejoins une méthode.
+              Rejoins la communauté.
             </span>
           </motion.h1>
 

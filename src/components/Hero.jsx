@@ -178,18 +178,36 @@ export default function Hero() {
 
                 {/* ── Top bar ── */}
                 <div className="flex items-center gap-3 px-4 py-3"
-                  style={{ background: '#181818', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  style={{ background: 'linear-gradient(180deg, #1e1e1e 0%, #181818 100%)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                   {/* Dots */}
-                  <div className="flex items-center gap-1.5 shrink-0">
-                    {['#ef4444','#f59e0b','#22c55e'].map(c => (
-                      <div key={c} className="w-3 h-3 rounded-full" style={{ background: c, opacity: 0.8 }} />
+                  <div className="flex items-center gap-[7px] shrink-0">
+                    {[
+                      { color: '#ff5f57', shadow: 'rgba(255,95,87,0.6)' },
+                      { color: '#febc2e', shadow: 'rgba(254,188,46,0.6)' },
+                      { color: '#28c840', shadow: 'rgba(40,200,64,0.6)' },
+                    ].map(({ color, shadow }) => (
+                      <div key={color}
+                        className="w-[11px] h-[11px] rounded-full shrink-0"
+                        style={{ background: color, boxShadow: `0 0 0 0.5px rgba(0,0,0,0.4), 0 0 6px ${shadow}` }}
+                      />
                     ))}
                   </div>
-                  {/* URL */}
-                  <div className="flex-1 rounded-md px-3 py-1 text-center text-[11px]"
-                    style={{ background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.2)' }}>
-                    discord.com — JustOneTrader
+
+                  {/* URL bar */}
+                  <div className="flex-1 flex items-center justify-center gap-1.5 rounded-lg px-3 py-1.5"
+                    style={{ background: 'rgba(255,255,255,0.045)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                    {/* Lock icon */}
+                    <svg width="9" height="10" viewBox="0 0 9 10" fill="none" style={{ color: 'rgba(255,255,255,0.25)', flexShrink: 0 }}>
+                      <rect x="1" y="4.5" width="7" height="5" rx="1" stroke="currentColor" strokeWidth="1"/>
+                      <path d="M2.5 4.5V3a2 2 0 0 1 4 0v1.5" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
+                    </svg>
+                    {/* Discord favicon dot */}
+                    <span className="w-[7px] h-[7px] rounded-full shrink-0" style={{ background: '#5865f2', boxShadow: '0 0 4px rgba(88,101,242,0.7)' }} />
+                    <span className="text-[11px] font-medium tracking-wide" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                      discord.com<span style={{ color: 'rgba(255,255,255,0.15)' }}> — JustOneTrader</span>
+                    </span>
                   </div>
+
                   {/* LIVE */}
                   <div
                     className="flex items-center gap-1.5 px-2.5 py-1 rounded-full shrink-0 transition-all duration-300 cursor-default"

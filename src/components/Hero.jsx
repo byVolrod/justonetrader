@@ -248,45 +248,34 @@ export default function Hero() {
 
                 {/* ── Tab nav ── */}
                 <div className="flex items-stretch" style={{ background: '#0f0f0f', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                  {VIDEOS.map((v, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setCurrent(i)}
-                      className="relative flex-1 flex flex-col items-center justify-center gap-0.5 py-3"
-                      style={{
-                        background: 'transparent',
-                        borderRight: i < VIDEOS.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
-                        cursor: 'pointer',
-                      }}
-                    >
-                      {/* Sliding active background */}
-                      {i === current && (
-                        <motion.div
-                          layoutId="tabActiveBg"
-                          className="absolute inset-0"
-                          style={{ background: '#181818' }}
-                          transition={{ type: 'spring', stiffness: 500, damping: 45, mass: 0.8 }}
-                        />
-                      )}
-                      {/* Sliding gold top bar */}
-                      {i === current && (
-                        <motion.div
-                          layoutId="tabActiveBar"
-                          className="absolute top-0 inset-x-0 h-[2px]"
-                          style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)' }}
-                          transition={{ type: 'spring', stiffness: 500, damping: 45, mass: 0.8 }}
-                        />
-                      )}
-                      <span className="relative z-10 text-[9px] font-black tracking-[0.12em] uppercase"
-                        style={{ color: i === current ? '#d4af37' : 'rgba(255,255,255,0.18)', transition: 'color 0.2s' }}>
-                        {v.tag}
-                      </span>
-                      <span className="relative z-10 text-[10px] font-medium"
-                        style={{ color: i === current ? 'rgba(255,255,255,0.55)' : 'rgba(255,255,255,0.15)', transition: 'color 0.2s' }}>
-                        {v.label}
-                      </span>
-                    </button>
-                  ))}
+                  {VIDEOS.map((v, i) => {
+                    const active = i === current
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => setCurrent(i)}
+                        className="relative flex-1 flex flex-col items-center justify-center gap-0.5 py-3"
+                        style={{
+                          background: active ? '#181818' : 'transparent',
+                          borderRight: i < VIDEOS.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {active && (
+                          <span className="absolute top-0 inset-x-0 h-[2px]"
+                            style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)' }} />
+                        )}
+                        <span className="text-[9px] font-black tracking-[0.12em] uppercase"
+                          style={{ color: active ? '#d4af37' : 'rgba(255,255,255,0.18)' }}>
+                          {v.tag}
+                        </span>
+                        <span className="text-[10px] font-medium"
+                          style={{ color: active ? 'rgba(255,255,255,0.55)' : 'rgba(255,255,255,0.15)' }}>
+                          {v.label}
+                        </span>
+                      </button>
+                    )
+                  })}
 
                   {/* Counter */}
                   <div className="flex items-center justify-center px-4 shrink-0"

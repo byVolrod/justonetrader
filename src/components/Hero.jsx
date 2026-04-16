@@ -201,52 +201,52 @@ export default function Hero() {
                 </div>
 
                 {/* Tab nav */}
-                <div className="grid gap-px" style={{ gridTemplateColumns: `repeat(${VIDEOS.length}, 1fr)`, background: 'rgba(255,255,255,0.05)' }}>
-                  {VIDEOS.map((v, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setCurrent(i)}
-                      className="relative flex flex-col items-center justify-center gap-0.5 py-3 transition-all duration-250"
-                      style={{
-                        background: i === current ? '#161616' : '#111',
-                        cursor: 'pointer',
-                      }}
+                <div className="flex items-stretch" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', background: '#111' }}>
+                  <div className="flex-1 grid gap-px" style={{ gridTemplateColumns: `repeat(${VIDEOS.length}, 1fr)`, background: 'rgba(255,255,255,0.05)' }}>
+                    {VIDEOS.map((v, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrent(i)}
+                        className="relative flex flex-col items-center justify-center gap-0.5 py-3 transition-all duration-250"
+                        style={{
+                          background: i === current ? '#161616' : '#111',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {i === current && (
+                          <span className="absolute top-0 inset-x-0 h-[2px]"
+                            style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)' }} />
+                        )}
+                        <span className="text-[9px] font-black tracking-widest uppercase"
+                          style={{ color: i === current ? '#d4af37' : 'rgba(255,255,255,0.2)' }}>
+                          {v.tag}
+                        </span>
+                        <span className="text-[10px] font-medium"
+                          style={{ color: i === current ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.18)' }}>
+                          {v.label}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Counter — intégré dans la barre */}
+                  <div className="flex items-center justify-center px-4"
+                    style={{ borderLeft: '1px solid rgba(255,255,255,0.05)', background: '#111', minWidth: 52 }}>
+                    <motion.span
+                      key={current}
+                      className="font-black text-xs tabular-nums"
+                      style={{ color: '#d4af37', letterSpacing: '0.05em' }}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.2 }}
                     >
-                      {i === current && (
-                        <span className="absolute top-0 inset-x-0 h-[2px]"
-                          style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)' }} />
-                      )}
-                      <span className="text-[9px] font-black tracking-widest uppercase"
-                        style={{ color: i === current ? '#d4af37' : 'rgba(255,255,255,0.2)' }}>
-                        {v.tag}
-                      </span>
-                      <span className="text-[10px] font-medium"
-                        style={{ color: i === current ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.18)' }}>
-                        {v.label}
-                      </span>
-                    </button>
-                  ))}
+                      {current + 1} / {VIDEOS.length}
+                    </motion.span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Counter badge — bottom right */}
-            <motion.div
-              className="absolute -bottom-4 -right-4 z-10 flex items-center gap-1.5 px-4 py-2 rounded-full font-black text-sm"
-              style={{
-                background: '#0d0d0d',
-                border: '1.5px solid rgba(212,175,55,0.35)',
-                color: '#d4af37',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,175,55,0.08)',
-                letterSpacing: '0.04em',
-              }}
-              key={current}
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.25, ease: 'easeOut' }}
-            >
-              {current + 1} / {VIDEOS.length}
-            </motion.div>
 
           </motion.div>
 

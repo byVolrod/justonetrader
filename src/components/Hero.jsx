@@ -1,18 +1,50 @@
-import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { useWhopStats } from '../hooks/useWhopStats'
 import AnimatedNumber from './AnimatedNumber'
 
+const VIDEOS = [
+  { src: '/video-discord.mp4',  label: 'Membres actifs',         tag: 'Communauté' },
+  { src: '/video-fonda.mp4',    label: 'Analyse fondamentale',   tag: 'Fondamentaux' },
+  // Ajoute ta 3ème vidéo ici :
+  // { src: '/video-analyses.mp4', label: 'Mes analyses en direct', tag: 'Analyses' },
+]
+
+const INTERVAL = 6000
 
 export default function Hero() {
   const { memberCount } = useWhopStats()
+  const [current, setCurrent] = useState(0)
+  const [progress, setProgress] = useState(0)
+  const progressRef = useRef(null)
+  const startRef = useRef(Date.now())
+
+  useEffect(() => {
+    startRef.current = Date.now()
+    setProgress(0)
+
+    const tick = () => {
+      const elapsed = Date.now() - startRef.current
+      const pct = Math.min((elapsed / INTERVAL) * 100, 100)
+      setProgress(pct)
+      if (elapsed < INTERVAL) {
+        progressRef.current = requestAnimationFrame(tick)
+      } else {
+        setCurrent(c => (c + 1) % VIDEOS.length)
+      }
+    }
+
+    progressRef.current = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(progressRef.current)
+  }, [current])
 
   return (
     <section id="accueil" className="relative min-h-[92vh] flex items-center pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
         <div className="grid lg:grid-cols-[3fr_2fr] gap-12 lg:gap-10 items-center">
 
-          {/* Text side */}
+          {/* ── Text side ── */}
           <div>
             <motion.h1
               className="text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-black leading-[1.04] mb-6"
@@ -84,16 +116,16 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Video side */}
+          {/* ── Video carousel ── */}
           <motion.div
             className="relative hidden lg:block"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.4 }}
           >
-            {/* Outer glow */}
+            {/* Glow */}
             <div className="absolute -inset-6 rounded-3xl blur-3xl pointer-events-none"
-              style={{ background: 'radial-gradient(ellipse, rgba(212,175,55,0.12) 0%, transparent 70%)' }} />
+              style={{ background: 'radial-gradient(ellipse, rgba(212,175,55,0.1) 0%, transparent 70%)' }} />
 
             {/* Card */}
             <div className="relative rounded-2xl overflow-hidden"
@@ -102,7 +134,7 @@ export default function Hero() {
                 boxShadow: '0 0 0 1px rgba(255,255,255,0.04), 0 30px 60px rgba(0,0,0,0.6)',
               }}>
 
-              {/* Fake browser/Discord top bar */}
+              {/* Top bar */}
               <div className="flex items-center gap-2 px-4 py-2.5"
                 style={{ background: '#1a1a1a', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                 <div className="flex items-center gap-1.5">
@@ -116,30 +148,76 @@ export default function Hero() {
                 </div>
               </div>
 
+              {/* Progress bar */}
+              <div className="h-0.5 w-full" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                <div
+                  className="h-full transition-none"
+                  style={{ width: `${progress}%`, background: 'linear-gradient(90deg, #d4af37, #fef08a)' }}
+                />
+              </div>
+
               {/* Video */}
               <div
                 className="relative select-none"
                 onContextMenu={e => e.preventDefault()}
               >
-                <video
-                  src="/video-discord.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  disablePictureInPicture
-                  className="w-full block"
-                  style={{ pointerEvents: 'none' }}
-                />
-                {/* Transparent security overlay */}
+                <AnimatePresence mode="wait">
+                  <motion.video
+                    key={current}
+                    src={VIDEOS[current].src}
+                    autoPlay
+                    muted
+                    loop={false}
+                    playsInline
+                    disablePictureInPicture
+                    className="w-full block"
+                    style={{ pointerEvents: 'none' }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                </AnimatePresence>
+
+                {/* Security overlay */}
                 <div
                   className="absolute inset-0"
                   onContextMenu={e => e.preventDefault()}
                   style={{ background: 'transparent', userSelect: 'none' }}
                 />
+
                 {/* Bottom fade */}
                 <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
-                  style={{ background: 'linear-gradient(to top, rgba(17,17,17,0.7) 0%, transparent 100%)' }} />
+                  style={{ background: 'linear-gradient(to top, rgba(17,17,17,0.75) 0%, transparent 100%)' }} />
+
+                {/* Current label */}
+                <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                  <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full"
+                    style={{ background: 'rgba(212,175,55,0.15)', border: '1px solid rgba(212,175,55,0.3)', color: '#d4af37' }}>
+                    {VIDEOS[current].tag}
+                  </span>
+                  <span className="text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                    {VIDEOS[current].label}
+                  </span>
+                </div>
+              </div>
+
+              {/* Dot navigation */}
+              <div className="flex items-center justify-center gap-2 py-2.5"
+                style={{ background: '#1a1a1a', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                {VIDEOS.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    className="rounded-full transition-all duration-300"
+                    style={{
+                      width: i === current ? '20px' : '6px',
+                      height: '6px',
+                      background: i === current ? '#d4af37' : 'rgba(255,255,255,0.2)',
+                    }}
+                    aria-label={`Vidéo ${i + 1}`}
+                  />
+                ))}
               </div>
             </div>
 

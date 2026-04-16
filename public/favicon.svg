@@ -1,4 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="20" fill="#0a0a0f"/>
-  <text x="50" y="65" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#d4af37" text-anchor="middle">JOT</text>
+  <!-- Fond carré arrondi -->
+  <rect width="100" height="100" rx="22" fill="#111111"/>
+
+  <!-- Lettre J géométrique bold -->
+  <!-- Barre du haut -->
+  <rect x="18" y="12" width="64" height="15" rx="4" fill="#d4af37"/>
+  <!-- Trait vertical (côté droit) -->
+  <rect x="63" y="12" width="19" height="45" fill="#d4af37"/>
+  <!-- Crochet du bas (forme en U) -->
+  <path d="
+    M18 49 L18 68
+    Q18 87 37 87
+    L63 87
+    Q82 87 82 68
+    L82 49
+    L63 49 L63 68
+    Q63 73 57 73
+    L43 73
+    Q37 73 37 68
+    L37 49
+    Z
+  " fill="#d4af37"/>
+
+  <!-- Accent doré en bas (motif underline du logo) -->
+  <rect x="18" y="92" width="64" height="4" rx="2" fill="#d4af37" opacity="0.35"/>
 </svg>

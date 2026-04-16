@@ -7,7 +7,7 @@ const getMilestones = (memberCount) => [
   { icon: Flame, year: '2021', label: 'Premiers pas dans la finance', desc: '3 ans à tester copytrading, robot trading et investissements passifs pour comprendre les marchés.', color: '#d4af37' },
   { icon: Bitcoin, year: '2024', label: 'Investissement Crypto & premiers membres', desc: 'Formation auprès d\'un mentor crypto, puis accompagnement de mes premiers membres.', color: '#10b981' },
   { icon: TrendingUp, year: '2025', label: 'Démarrage du trading institutionnel', desc: 'Formation avancée auprès de deux mentors en analyse technique et fondamentale afin de structurer un trading à approche institutionnelle.', color: '#d4af37' },
-  { icon: Users, year: '2026', label: 'Lancement de la communauté JustOneTrader', desc: `Création et lancement de la communauté. +${memberCount} membres actifs, 0 résultat caché. Chaque trade partagé avant et après en transparence totale.`, color: '#10b981' },
+  { icon: Users, year: '2026', label: 'Lancement de la communauté JustOneTrader', desc: `Création et développement de la communauté avec une transparence totale : chaque trade est annoncé, exécuté et analysé en public, sans aucun résultat dissimulé.`, color: '#10b981' },
 ]
 
 export default function About() {

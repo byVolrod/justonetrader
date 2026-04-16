@@ -192,58 +192,34 @@ export default function Hero() {
                 <div className="absolute inset-0" onContextMenu={e => e.preventDefault()}
                   style={{ background: 'transparent', userSelect: 'none' }} />
 
-                {/* Bottom fade */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
-                  style={{ background: 'linear-gradient(to top, rgba(14,14,14,0.9) 0%, transparent 100%)' }} />
-
-                {/* Tag + label */}
-                <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={current + 'tag'}
-                      className="text-[11px] font-bold px-2.5 py-1 rounded-full"
-                      style={{ background: 'rgba(212,175,55,0.18)', border: '1px solid rgba(212,175,55,0.4)', color: '#d4af37' }}
-                      initial={{ opacity: 0, y: 4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -4 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {VIDEOS[current].tag}
-                    </motion.span>
-                  </AnimatePresence>
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={current + 'label'}
-                      className="text-xs font-medium"
-                      style={{ color: 'rgba(255,255,255,0.7)' }}
-                      initial={{ opacity: 0, x: -6 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3, delay: 0.05 }}
-                    >
-                      {VIDEOS[current].label}
-                    </motion.span>
-                  </AnimatePresence>
-                </div>
               </div>
 
               {/* Bottom nav avec tabs */}
-              <div className="flex items-center justify-between px-4 py-3 gap-3"
-                style={{ background: '#141414', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+              <div className="flex items-stretch justify-between gap-px"
+                style={{ background: '#0e0e0e', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
                 {VIDEOS.map((v, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
-                    className="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all duration-300"
+                    className="flex-1 flex flex-col items-center justify-center gap-1 px-2 py-3 transition-all duration-300 relative"
                     style={{
-                      background: i === current ? 'rgba(212,175,55,0.12)' : 'transparent',
-                      border: i === current ? '1px solid rgba(212,175,55,0.3)' : '1px solid transparent',
-                      color: i === current ? '#d4af37' : 'rgba(255,255,255,0.3)',
+                      background: i === current ? 'rgba(212,175,55,0.07)' : 'transparent',
+                      borderRight: i < VIDEOS.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
                     }}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full shrink-0"
-                      style={{ background: i === current ? '#d4af37' : 'rgba(255,255,255,0.2)' }} />
-                    {v.tag}
+                    {/* Barre active en haut */}
+                    {i === current && (
+                      <span className="absolute top-0 left-0 right-0 h-[2px] rounded-b-full"
+                        style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)' }} />
+                    )}
+                    <span className="text-[10px] font-bold tracking-wide uppercase"
+                      style={{ color: i === current ? '#d4af37' : 'rgba(255,255,255,0.25)' }}>
+                      {v.tag}
+                    </span>
+                    <span className="text-[10px] leading-tight text-center"
+                      style={{ color: i === current ? 'rgba(255,255,255,0.65)' : 'rgba(255,255,255,0.2)' }}>
+                      {v.label}
+                    </span>
                   </button>
                 ))}
               </div>

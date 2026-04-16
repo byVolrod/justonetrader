@@ -58,7 +58,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <img src="/logo-1.png" alt="JustOneTrader" className="h-10 w-auto object-contain mb-4"
-              style={{ filter: 'brightness(0) saturate(100%) invert(78%) sepia(55%) saturate(500%) hue-rotate(8deg) brightness(1.05)' }} />
+              style={{ mixBlendMode: 'screen', filter: 'contrast(8) brightness(1.6) sepia(0.4) saturate(1.8)' }} />
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>
               Analyses, méthode et communauté — tout le nécessaire pour trader avec structure et transparence totale.
             </p>

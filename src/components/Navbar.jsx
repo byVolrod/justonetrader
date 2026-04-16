@@ -81,7 +81,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-[72px]">
           <a href="#" className="flex items-center group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="JustOneTrader - Retour en haut">
-            <img src="/logo-1.png" alt="JustOneTrader" className="h-10 sm:h-12 w-auto object-contain" style={{ filter: 'brightness(0) saturate(100%) invert(78%) sepia(55%) saturate(500%) hue-rotate(8deg) brightness(1.05)' }} />
+            <img src="/logo-1.png" alt="JustOneTrader" className="h-10 sm:h-12 w-auto object-contain" style={{ mixBlendMode: 'screen', filter: 'contrast(8) brightness(1.6) sepia(0.4) saturate(1.8)' }} />
           </a>
 
           <div className="hidden lg:flex items-center gap-1">

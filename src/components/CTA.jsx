@@ -74,7 +74,7 @@ export default function CTA() {
               href="https://whop.com/justonetrader"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 font-black px-10 py-4 rounded-xl text-sm"
+              className="group inline-flex items-center justify-center gap-2.5 font-black w-full sm:w-auto px-10 py-4 rounded-xl text-sm"
               style={{ background: 'linear-gradient(90deg, #d4af37, #e8c94a)', color: '#0a0a0f', boxShadow: '0 0 50px rgba(212,175,55,0.3)' }}
               whileHover={{ scale: 1.04, boxShadow: '0 0 80px rgba(212,175,55,0.5)' }}
               whileTap={{ scale: 0.97 }}

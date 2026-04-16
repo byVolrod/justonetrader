@@ -62,7 +62,7 @@ function FaqItem({ faq, isOpen, onToggle, index }) {
             transition={{ duration: 0.22 }}
             className="overflow-hidden"
           >
-            <p className="px-5 pb-5 pl-14 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
+            <p className="px-5 pb-5 pl-5 sm:pl-14 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
               {faq.a}
             </p>
           </motion.div>

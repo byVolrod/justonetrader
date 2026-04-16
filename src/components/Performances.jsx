@@ -111,11 +111,11 @@ export default function Performances() {
           </div>
 
           {/* Bottom caption */}
-          <div className="px-5 py-4 flex items-center justify-between">
+          <div className="px-5 py-4 flex flex-wrap items-center justify-between gap-2">
             <p className="text-sm" style={{ color: 'rgba(255,255,255,0.65)' }}>
               Journal complet accessible aux membres — chaque trade documenté, aucune sélection.
             </p>
-            <span className="text-xs font-semibold shrink-0 ml-4" style={{ color: '#d4af37' }}>
+            <span className="text-xs font-semibold shrink-0" style={{ color: '#d4af37' }}>
               Accès membre
             </span>
           </div>

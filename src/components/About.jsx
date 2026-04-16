@@ -126,7 +126,7 @@ export default function About() {
             </div>
 
             {/* Stats row */}
-            <div className="flex items-center gap-8 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+            <div className="flex flex-wrap items-center gap-6 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               {[
                 { count: 5, prefix: '+', label: 'Ans dans la finance', color: '#d4af37' },
                 { count: 3, prefix: '', label: 'Mentors', color: '#10b981' },

@@ -51,7 +51,7 @@ export default function Hero() {
   }, [current])
 
   return (
-    <section id="accueil" className="relative min-h-[92vh] flex items-center pt-20 pb-16 overflow-hidden">
+    <section id="accueil" className="relative min-h-[100svh] flex items-center pt-20 pb-10 sm:pb-16 overflow-hidden">
 
       {/* Ambient glow */}
       <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-[700px] h-[700px] pointer-events-none"
@@ -60,14 +60,14 @@ export default function Hero() {
         style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.025) 0%, transparent 65%)' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-14 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
           {/* ── LEFT ── */}
           <div className="flex flex-col">
 
             {/* Live indicator pill */}
             <motion.div
-              className="flex items-center gap-2 self-start mb-7"
+              className="flex items-center gap-2 self-start mb-4 sm:mb-7"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -82,8 +82,8 @@ export default function Hero() {
 
             {/* H1 */}
             <motion.h1
-              className="font-black leading-[1.06] mb-6"
-              style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)' }}
+              className="font-black leading-[1.06] mb-4 sm:mb-6"
+              style={{ fontSize: 'clamp(1.75rem, 5vw, 3.5rem)' }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.08 }}
@@ -104,7 +104,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <motion.p
-              className="text-base sm:text-[1.05rem] leading-relaxed mb-9 max-w-sm"
+              className="text-sm sm:text-[1.05rem] leading-relaxed mb-6 sm:mb-9 max-w-sm"
               style={{ color: 'rgba(255,255,255,0.5)' }}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ export default function Hero() {
 
             {/* CTAs */}
             <motion.div
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-10"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6 sm:mb-10"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.26 }}
@@ -124,7 +124,7 @@ export default function Hero() {
                 href="https://whop.com/justonetrader"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center gap-2.5 font-bold rounded-xl px-7 py-3.5 text-sm overflow-hidden"
+                className="group relative inline-flex items-center justify-center gap-2.5 font-bold rounded-xl px-7 py-3.5 text-sm overflow-hidden"
                 style={{
                   background: 'linear-gradient(135deg, #c9a227, #e8c94a, #d4af37)',
                   color: '#0a0a0f',
@@ -139,7 +139,7 @@ export default function Hero() {
 
               <a
                 href="#communaute"
-                className="inline-flex items-center gap-1.5 text-sm font-medium px-5 py-3.5 rounded-xl transition-all duration-200"
+                className="inline-flex items-center justify-center gap-1.5 text-sm font-medium px-5 py-3.5 rounded-xl transition-all duration-200"
                 style={{
                   color: 'rgba(255,255,255,0.45)',
                   border: '1px solid rgba(255,255,255,0.07)',

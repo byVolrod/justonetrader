@@ -48,7 +48,7 @@ export default function Problem() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-4 mb-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
           {problems.map((p, i) => (
             <motion.div
               key={p.title}

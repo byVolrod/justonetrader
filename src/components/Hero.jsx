@@ -239,7 +239,7 @@ export default function Hero() {
                         style={{
                           background: 'linear-gradient(90deg, #d4af37, #fef08a)',
                           width: i < current ? '100%' : i === current ? `${progress}%` : '0%',
-                          transition: i === current ? 'none' : 'width 0.3s ease',
+                          transition: 'none',
                         }} />
                     </div>
                   ))}

@@ -11,13 +11,13 @@ const problems = [
   {
     title: 'Exécution et gestion du risque',
     desc: 'Stop mal placé, sizing émotionnel, entrée précipitée. Une seule erreur efface plusieurs semaines de travail.',
-    color: '#f97316',
+    color: '#ef4444',
     num: '02',
   },
   {
     title: 'Le mental qui sabote tout',
     desc: 'FOMO, revenge trading, fermeture prématurée. Les meilleures analyses ne servent à rien quand les émotions décident.',
-    color: '#8b5cf6',
+    color: '#ef4444',
     num: '03',
   },
 ]
@@ -32,9 +32,10 @@ export default function Problem() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: 'rgba(239,68,68,0.7)' }}>
+          <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5 text-xs font-semibold tracking-widest uppercase"
+            style={{ border: '1px solid rgba(239,68,68,0.25)', background: 'rgba(239,68,68,0.05)', color: '#ef4444' }}>
             Ces erreurs te coûtent des trades chaque semaine
-          </p>
+          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4">
             95% des traders perdent.
             <br />

@@ -22,18 +22,11 @@ export default function CTA() {
         >
           {/* Top gold beam */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-64 pointer-events-none"
-            style={{ background: 'radial-gradient(ellipse at top, rgba(212,175,55,0.14), transparent 65%)' }} />
-
-          {/* Grid lines */}
-          <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-            style={{
-              backgroundImage: 'linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)',
-              backgroundSize: '48px 48px',
-            }} />
+            style={{ background: 'radial-gradient(ellipse at top, rgba(212,175,55,0.1), transparent 65%)' }} />
 
           {/* Top border glow */}
           <div className="absolute top-0 left-0 right-0 h-px"
-            style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(212,175,55,0.7) 40%, rgba(212,175,55,0.7) 60%, transparent 95%)' }} />
+            style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(212,175,55,0.6) 40%, rgba(212,175,55,0.6) 60%, transparent 95%)' }} />
 
           <div className="relative px-8 sm:px-16 py-16">
             {/* Stars */}

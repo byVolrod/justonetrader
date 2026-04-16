@@ -14,14 +14,14 @@ const services = [
     title: 'Analyse Technique & Fondamentale',
     description: 'On combine graphique et macro pour comprendre pourquoi le marché bouge, pas juste comment.',
     tag: 'Méthode',
-    color: '#6366f1',
+    color: '#d4af37',
   },
   {
     icon: Target,
     title: 'Gestion du risque',
     description: 'Chaque setup a une gestion de position adaptée. Durer en trading, c\'est d\'abord maîtriser son risque.',
     tag: 'Risk',
-    color: '#f97316',
+    color: '#d4af37',
   },
   {
     icon: Users,

@@ -33,7 +33,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Analyses techniques et fondamentales justifiées, résultats partagés en transparence totale. Une vraie communauté — pas un signal provider de plus.
+            Résultats réels, transparence totale et une communauté qui trade vraiment.
           </motion.p>
 
           <motion.div

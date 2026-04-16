@@ -26,20 +26,30 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="absolute -inset-4 rounded-3xl blur-3xl pointer-events-none"
-              style={{ background: 'rgba(212,175,55,0.06)' }} />
-            <div className="relative rounded-2xl overflow-hidden"
-              style={{ border: '1px solid rgba(255,255,255,0.08)', aspectRatio: '4/5', maxHeight: 560 }}>
-              <img
-                src="/founder.jpg"
-                alt="Fondateur de JustOneTrader"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: '60% 30%' }}
-                loading="lazy"
-                draggable="false"
-              />
-              <div className="absolute inset-0 pointer-events-none"
-                style={{ background: 'linear-gradient(to top, rgba(17,17,17,0.6) 0%, transparent 40%)' }} />
+            {/* Outer glow */}
+            <div className="absolute -inset-6 rounded-3xl blur-3xl pointer-events-none"
+              style={{ background: 'radial-gradient(ellipse at 40% 60%, rgba(212,175,55,0.13) 0%, transparent 70%)' }} />
+
+            {/* Gradient border frame */}
+            <div className="relative rounded-2xl p-px"
+              style={{ background: 'linear-gradient(145deg, rgba(212,175,55,0.55) 0%, rgba(212,175,55,0.08) 40%, rgba(212,175,55,0.0) 70%, rgba(212,175,55,0.25) 100%)' }}>
+              <div className="relative rounded-2xl overflow-hidden"
+                style={{ aspectRatio: '4/5', maxHeight: 560, background: '#0f0f0f', boxShadow: '0 32px 80px rgba(0,0,0,0.6)' }}>
+                <img
+                  src="/founder.jpg"
+                  alt="Fondateur de JustOneTrader"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: '60% 30%', filter: 'contrast(1.05) brightness(0.95)' }}
+                  loading="lazy"
+                  draggable="false"
+                />
+                {/* Bottom gradient */}
+                <div className="absolute inset-0 pointer-events-none"
+                  style={{ background: 'linear-gradient(to top, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.1) 35%, transparent 60%)' }} />
+                {/* Subtle gold shimmer top-left */}
+                <div className="absolute inset-0 pointer-events-none"
+                  style={{ background: 'radial-gradient(ellipse at 20% 10%, rgba(212,175,55,0.08) 0%, transparent 55%)' }} />
+              </div>
             </div>
           </motion.div>
 

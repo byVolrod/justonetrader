@@ -246,19 +246,20 @@ export default function Hero() {
                 </div>
 
                 {/* ── Video ── */}
-                <div className="relative select-none" onContextMenu={e => e.preventDefault()}>
-                  <AnimatePresence mode="wait">
+                <div className="relative select-none" onContextMenu={e => e.preventDefault()}
+                  style={{ aspectRatio: '16/9', background: '#0a0a0a' }}>
+                  <AnimatePresence>
                     <motion.video
                       key={current}
                       ref={videoRef}
                       src={VIDEOS[current].src}
                       autoPlay muted loop={false} playsInline disablePictureInPicture
-                      className="w-full block"
-                      style={{ pointerEvents: 'none', display: 'block' }}
+                      className="absolute inset-0 w-full h-full"
+                      style={{ pointerEvents: 'none', objectFit: 'cover' }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.35 }}
+                      transition={{ duration: 0.4 }}
                     />
                   </AnimatePresence>
                   <div className="absolute inset-0" onContextMenu={e => e.preventDefault()}

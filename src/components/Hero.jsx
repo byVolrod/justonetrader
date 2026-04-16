@@ -210,21 +210,32 @@ export default function Hero() {
 
                   {/* LIVE */}
                   <div
-                    className="flex items-center gap-1.5 px-2.5 py-1 rounded-full shrink-0 transition-all duration-300 cursor-default"
-                    style={{ background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.3)', boxShadow: '0 0 10px rgba(16,185,129,0.15)' }}
+                    className="flex items-center gap-[5px] shrink-0 cursor-default select-none"
+                    style={{
+                      padding: '4px 10px 4px 8px',
+                      borderRadius: 6,
+                      background: 'rgba(16,185,129,0.09)',
+                      border: '1px solid rgba(16,185,129,0.22)',
+                      transition: 'background 0.25s, border-color 0.25s',
+                    }}
                     onMouseEnter={e => {
-                      e.currentTarget.style.background = 'rgba(16,185,129,0.22)'
-                      e.currentTarget.style.boxShadow = '0 0 20px rgba(16,185,129,0.4)'
-                      e.currentTarget.style.borderColor = 'rgba(16,185,129,0.55)'
+                      e.currentTarget.style.background = 'rgba(16,185,129,0.16)'
+                      e.currentTarget.style.borderColor = 'rgba(16,185,129,0.4)'
                     }}
                     onMouseLeave={e => {
-                      e.currentTarget.style.background = 'rgba(16,185,129,0.12)'
-                      e.currentTarget.style.boxShadow = '0 0 10px rgba(16,185,129,0.15)'
-                      e.currentTarget.style.borderColor = 'rgba(16,185,129,0.3)'
+                      e.currentTarget.style.background = 'rgba(16,185,129,0.09)'
+                      e.currentTarget.style.borderColor = 'rgba(16,185,129,0.22)'
                     }}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#10b981', boxShadow: '0 0 4px #10b981' }} />
-                    <span className="text-[10px] font-black tracking-widest" style={{ color: '#10b981' }}>LIVE</span>
+                    <span className="pulse-dot w-[6px] h-[6px] rounded-full shrink-0"
+                      style={{ background: '#10b981' }} />
+                    <span style={{
+                      fontSize: 10,
+                      fontWeight: 700,
+                      letterSpacing: '0.1em',
+                      color: '#10b981',
+                      lineHeight: 1,
+                    }}>LIVE</span>
                   </div>
                 </div>
 

@@ -274,11 +274,12 @@ export default function Hero() {
                       <button
                         key={i}
                         onClick={() => setCurrent(i)}
-                        className="relative flex-1 flex flex-col items-center justify-center gap-0.5 py-3"
+                        className="relative flex-1 flex flex-col items-center justify-center gap-0.5 py-3 active:bg-white/5 transition-colors duration-100"
                         style={{
                           background: active ? '#181818' : 'transparent',
                           borderRight: i < VIDEOS.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                           cursor: 'pointer',
+                          WebkitTapHighlightColor: 'rgba(212,175,55,0.08)',
                         }}
                       >
                         {active && (

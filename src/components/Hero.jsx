@@ -177,66 +177,39 @@ export default function Hero() {
                 style={{ background: '#0f0f0f', boxShadow: '0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.02)' }}>
 
                 {/* ── Top bar ── */}
-                <div className="flex items-center gap-3 px-4 py-3"
-                  style={{ background: 'linear-gradient(180deg, #1e1e1e 0%, #181818 100%)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <div className="flex items-center gap-3 px-4"
+                  style={{ height: 42, background: '#161616', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+
                   {/* Dots */}
-                  <div className="flex items-center gap-[7px] shrink-0">
-                    {[
-                      { color: '#ff5f57', shadow: 'rgba(255,95,87,0.6)' },
-                      { color: '#febc2e', shadow: 'rgba(254,188,46,0.6)' },
-                      { color: '#28c840', shadow: 'rgba(40,200,64,0.6)' },
-                    ].map(({ color, shadow }) => (
-                      <div key={color}
-                        className="w-[11px] h-[11px] rounded-full shrink-0"
-                        style={{ background: color, boxShadow: `0 0 0 0.5px rgba(0,0,0,0.4), 0 0 6px ${shadow}` }}
-                      />
+                  <div className="flex items-center gap-[6px] shrink-0">
+                    {['#ff5f57','#febc2e','#28c840'].map(c => (
+                      <div key={c} className="w-[10px] h-[10px] rounded-full shrink-0"
+                        style={{ background: c, opacity: 0.85 }} />
                     ))}
                   </div>
 
                   {/* URL bar */}
-                  <div className="flex-1 flex items-center justify-center gap-1.5 rounded-lg px-3 py-1.5"
-                    style={{ background: 'rgba(255,255,255,0.045)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                    {/* Lock icon */}
-                    <svg width="9" height="10" viewBox="0 0 9 10" fill="none" style={{ color: 'rgba(255,255,255,0.25)', flexShrink: 0 }}>
-                      <rect x="1" y="4.5" width="7" height="5" rx="1" stroke="currentColor" strokeWidth="1"/>
-                      <path d="M2.5 4.5V3a2 2 0 0 1 4 0v1.5" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
+                  <div className="flex-1 flex items-center justify-center gap-[6px] rounded-md px-2.5"
+                    style={{ height: 26, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                    <svg width="8" height="9" viewBox="0 0 8 9" fill="none" style={{ flexShrink: 0, color: 'rgba(255,255,255,0.2)' }}>
+                      <rect x="0.75" y="4" width="6.5" height="4.25" rx="1" stroke="currentColor" strokeWidth="0.9"/>
+                      <path d="M2.25 4V2.75a1.75 1.75 0 0 1 3.5 0V4" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"/>
                     </svg>
-                    {/* Discord favicon dot */}
-                    <span className="w-[7px] h-[7px] rounded-full shrink-0" style={{ background: '#5865f2', boxShadow: '0 0 4px rgba(88,101,242,0.7)' }} />
-                    <span className="text-[11px] font-medium tracking-wide" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                      discord.com<span style={{ color: 'rgba(255,255,255,0.15)' }}> — JustOneTrader</span>
+                    <span style={{ fontSize: 10.5, fontWeight: 400, color: 'rgba(255,255,255,0.28)', letterSpacing: '0.01em', whiteSpace: 'nowrap' }}>
+                      discord.com<span style={{ color: 'rgba(255,255,255,0.13)' }}>/JustOneTrader</span>
                     </span>
                   </div>
 
                   {/* LIVE */}
-                  <div
-                    className="flex items-center gap-[5px] shrink-0 cursor-default select-none"
-                    style={{
-                      padding: '4px 10px 4px 8px',
-                      borderRadius: 6,
-                      background: 'rgba(16,185,129,0.09)',
-                      border: '1px solid rgba(16,185,129,0.22)',
-                      transition: 'background 0.25s, border-color 0.25s',
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.background = 'rgba(16,185,129,0.16)'
-                      e.currentTarget.style.borderColor = 'rgba(16,185,129,0.4)'
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.background = 'rgba(16,185,129,0.09)'
-                      e.currentTarget.style.borderColor = 'rgba(16,185,129,0.22)'
-                    }}
+                  <div className="flex items-center gap-[5px] shrink-0 cursor-default select-none"
+                    style={{ padding: '3px 9px 3px 7px', borderRadius: 5, background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)', transition: 'background 0.2s, border-color 0.2s' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(16,185,129,0.14)'; e.currentTarget.style.borderColor = 'rgba(16,185,129,0.35)' }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(16,185,129,0.08)'; e.currentTarget.style.borderColor = 'rgba(16,185,129,0.2)' }}
                   >
-                    <span className="pulse-dot w-[6px] h-[6px] rounded-full shrink-0"
-                      style={{ background: '#10b981' }} />
-                    <span style={{
-                      fontSize: 10,
-                      fontWeight: 700,
-                      letterSpacing: '0.1em',
-                      color: '#10b981',
-                      lineHeight: 1,
-                    }}>LIVE</span>
+                    <span className="pulse-dot w-[5px] h-[5px] rounded-full shrink-0" style={{ background: '#10b981' }} />
+                    <span style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: '0.09em', color: '#10b981', lineHeight: 1 }}>LIVE</span>
                   </div>
+
                 </div>
 
                 {/* ── Story-style progress bars ── */}

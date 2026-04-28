@@ -1,13 +1,44 @@
 import { motion } from 'framer-motion'
-import { Flame, Bitcoin, TrendingUp, Users } from 'lucide-react'
+import { Flame, Bitcoin, TrendingUp, Users, BarChart2 } from 'lucide-react'
 import { useWhopStats } from '../hooks/useWhopStats'
 import AnimatedNumber from './AnimatedNumber'
 
 const getMilestones = (memberCount) => [
-  { icon: Flame, year: '2021', label: 'Premiers pas dans la finance', desc: '3 ans à tester copytrading, robot trading et investissements passifs pour comprendre les marchés.', color: '#d4af37' },
-  { icon: Bitcoin, year: '2024', label: 'Investissement Crypto & premiers membres', desc: 'Formation auprès d\'un mentor crypto, puis accompagnement de mes premiers membres.', color: '#10b981' },
-  { icon: TrendingUp, year: '2025', label: 'Apprentissage du trading institutionnel', desc: 'Formation avancée auprès de deux mentors en analyse technique et fondamentale afin de structurer un trading à approche institutionnelle.', color: '#d4af37' },
-  { icon: Users, year: '2026', label: 'Lancement de la communauté JustOneTrader', desc: `Création et développement de la communauté avec une transparence totale : chaque trade est annoncé, exécuté et analysé en public, sans aucun résultat dissimulé.`, color: '#10b981' },
+  {
+    icon: Flame,
+    year: '2021',
+    label: 'Premiers pas dans la finance',
+    desc: 'Exploration des marchés à travers le copy trading, les robots de trading et les investissements passifs afin de comprendre le fonctionnement global des marchés.',
+    color: '#d4af37',
+  },
+  {
+    icon: Bitcoin,
+    year: '2024',
+    label: 'Investissement crypto & premiers accompagnements',
+    desc: 'Formation auprès d\'un mentor spécialisé en crypto, puis accompagnement de mes premiers membres et structuration des premières analyses.',
+    color: '#10b981',
+  },
+  {
+    icon: TrendingUp,
+    year: '2025',
+    label: 'Approfondissement de l\'analyse technique avancée',
+    desc: 'Accompagnement privé en analyse technique avancée afin de professionnaliser ma lecture des marchés et développer une approche plus précise et structurée du trading.',
+    color: '#d4af37',
+  },
+  {
+    icon: BarChart2,
+    year: '2026',
+    label: 'Professionnalisation complète du trading (technique & fondamentale)',
+    desc: 'Accompagnement privé en analyse technique avancée et analyse fondamentale pour renforcer une approche institutionnelle et systématique du trading.',
+    color: '#d4af37',
+  },
+  {
+    icon: Users,
+    year: '2026 – Aujourd\'hui',
+    label: 'Lancement de la communauté JustOneTrader',
+    desc: 'Développement d\'une communauté basée sur la transparence totale : chaque trade est partagé, exécuté et analysé publiquement, sans résultats masqués.',
+    color: '#10b981',
+  },
 ]
 
 export default function About() {

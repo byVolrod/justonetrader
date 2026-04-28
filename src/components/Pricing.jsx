@@ -47,11 +47,11 @@ const plans = [
     emoji: '₿',
     price: '39,99€',
     period: '/mois',
-    description: 'Investissement crypto moyen/long-terme. Points réguliers sur le marché, accompagnement continu.',
-
+    description: 'Investissement crypto moyen/long-terme avec un accompagnement structuré et des signaux clairs.',
     features: [
-      'Analyses & prises de positions Crypto',
-      'Analyses on-chain & fondamentales',
+      'Analyses techniques des crypto',
+      'Analyses fondamentales des crypto',
+      'Alertes lorsqu\'il faut DCA ou non',
       'Alertes Bull/Bear market',
     ],
     link: 'https://whop.com/joined/justonetrader/products/jot-crypto/',

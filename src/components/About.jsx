@@ -34,7 +34,7 @@ const getMilestones = (memberCount) => [
   },
   {
     icon: Users,
-    year: '2026 – Aujourd\'hui',
+    year: '2025 – Aujourd\'hui',
     label: 'Lancement de la communauté JustOneTrader',
     desc: 'Création d\'une communauté basée sur la transparence totale : tous les trades sont partagés, exécutés et analysés publiquement.',
     color: '#10b981',
@@ -49,9 +49,9 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* Photo side - clean, no overlay */}
+          {/* Photo side */}
           <motion.div
-            className="relative"
+            className="relative flex flex-col gap-4"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -59,8 +59,10 @@ export default function About() {
           >
             <div className="absolute -inset-4 rounded-3xl blur-3xl pointer-events-none"
               style={{ background: 'rgba(212,175,55,0.06)' }} />
+
+            {/* Image */}
             <div className="relative rounded-2xl overflow-hidden"
-              style={{ border: '1px solid rgba(255,255,255,0.08)', aspectRatio: '4/5', maxHeight: 560 }}>
+              style={{ border: '1px solid rgba(255,255,255,0.08)', aspectRatio: '4/5', maxHeight: 520 }}>
               <img
                 src="/founder.jpg"
                 alt="Fondateur de JustOneTrader"
@@ -71,6 +73,36 @@ export default function About() {
               />
               <div className="absolute inset-0 pointer-events-none"
                 style={{ background: 'linear-gradient(to top, rgba(17,17,17,0.6) 0%, transparent 40%)' }} />
+            </div>
+
+            {/* Stats bar */}
+            <div className="relative grid grid-cols-3 rounded-2xl overflow-hidden"
+              style={{ background: '#141414', border: '1px solid rgba(255,255,255,0.07)' }}>
+              {[
+                { count: 5, prefix: '+', label: 'Ans dans la finance', color: '#d4af37' },
+                { count: 3, prefix: '', label: 'Mentors', color: '#10b981' },
+                { count: memberCount, prefix: '+', label: 'Membres', color: '#d4af37' },
+              ].map((s, i) => (
+                <motion.div
+                  key={s.label}
+                  className="flex flex-col items-center justify-center py-4 px-2"
+                  style={{ borderRight: i < 2 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 + i * 0.1 }}
+                >
+                  <AnimatedNumber
+                    value={s.count}
+                    prefix={s.prefix}
+                    duration={1800}
+                    delay={i * 80}
+                    className="text-2xl font-black"
+                    style={{ color: s.color }}
+                  />
+                  <div className="text-[11px] mt-0.5 text-center" style={{ color: 'rgba(255,255,255,0.45)' }}>{s.label}</div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
@@ -93,10 +125,6 @@ export default function About() {
                 pas un vendeur de rêve.
               </span>
             </h2>
-
-            <p className="text-base leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.72)' }}>
-              Chaque trade, chaque résultat, gagnant ou perdant, partagé en transparence totale. Pas de mise en scène, juste la réalité d'un trader qui progresse et documente tout.
-            </p>
 
             {/* Vertical timeline */}
             <div className="relative ml-1 mb-8">
@@ -156,25 +184,6 @@ export default function About() {
               </div>
             </div>
 
-            {/* Stats row */}
-            <div className="flex flex-wrap items-center gap-6 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-              {[
-                { count: 5, prefix: '+', label: 'Ans dans la finance', color: '#d4af37' },
-                { count: 3, prefix: '', label: 'Mentors', color: '#10b981' },
-                { count: memberCount, prefix: '+', label: 'Membres', color: '#d4af37' },
-              ].map((s, i) => (
-                <motion.div
-                  key={s.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 + i * 0.08 }}
-                >
-                  <AnimatedNumber value={s.count} prefix={s.prefix} duration={1800} delay={i * 80} className="text-2xl font-black" style={{ color: s.color }} />
-                  <div className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.58)' }}>{s.label}</div>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
 
         </div>

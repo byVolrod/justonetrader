@@ -148,7 +148,7 @@ export default function About() {
                             </span>
                           )}
                         </div>
-                        <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.62)' }}>{m.desc}</p>
+                        <p className="text-sm mt-1 leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>{m.desc}</p>
                       </div>
                     </motion.div>
                   )

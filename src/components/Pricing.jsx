@@ -122,7 +122,7 @@ export default function Pricing() {
             >
               {plan.badge && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-xs font-black px-4 py-1.5 rounded-full whitespace-nowrap"
-                  style={{ background: c, color: isPremium ? '#fff' : '#0a0a0f', boxShadow: `0 0 16px ${c}55` }}>
+                  style={{ background: c, color: '#fff', boxShadow: `0 0 16px ${c}55` }}>
                   {isPremium ? <Sparkles size={10} /> : <Zap size={10} />}
                   {plan.badge}
                 </div>

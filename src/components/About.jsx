@@ -36,7 +36,7 @@ const getMilestones = (memberCount) => [
     icon: Users,
     year: '2025 – Aujourd\'hui',
     label: 'Lancement de la communauté JustOneTrader',
-    desc: 'Création d\'une communauté basée sur la transparence totale.',
+    desc: '',
     color: '#10b981',
   },
 ]

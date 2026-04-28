@@ -95,7 +95,7 @@ export default function About() {
             </h2>
 
             <p className="text-base leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.72)' }}>
-              Chaque trade, chaque résultat — gagnant ou perdant — partagé en transparence totale. Pas de mise en scène, juste la réalité d'un trader qui progresse et documente tout.
+              Chaque trade, chaque résultat, gagnant ou perdant, partagé en transparence totale. Pas de mise en scène, juste la réalité d'un trader qui progresse et documente tout.
             </p>
 
             {/* Vertical timeline */}

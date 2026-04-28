@@ -4,9 +4,9 @@ import { Check, Sparkles, Lock, Zap, ShieldCheck } from 'lucide-react'
 const plans = [
   {
     name: 'JOT — TRADING',
-    emoji: '📈',
     price: '24,99€',
     period: '/mois',
+    color: '#10b981',
     description: 'Accès complet à la communauté, aux analyses et au programme éducatif Forex.',
     features: [
       'Accès exclusif au salon privé Discord',
@@ -19,13 +19,12 @@ const plans = [
     ],
     link: 'https://whop.com/joined/justonetrader/products/jot-trading/',
     cta: 'Rejoindre maintenant',
-    popular: false,
   },
   {
     name: 'JOT — DTP',
-    emoji: '🖥️',
     price: '24,99€',
     period: '/mois',
+    color: '#d4af37',
     description: 'Terminal de données institutionnelles. Toutes les données pour trader comme le smart money.',
     features: [
       'Positions retail',
@@ -38,15 +37,13 @@ const plans = [
     ],
     link: 'https://whop.com/joined/justonetrader/products/jot-dtp/',
     cta: 'Accéder au terminal',
-    popular: false,
-    highlight: true,
-    highlightLabel: 'NOUVEAU',
+    badge: 'NOUVEAU',
   },
   {
     name: 'JOT — CRYPTO',
-    emoji: '₿',
     price: '39,99€',
     period: '/mois',
+    color: '#F7931A',
     description: 'Investissement crypto moyen/long-terme avec un accompagnement structuré et des signaux clairs.',
     features: [
       'Analyses techniques des cryptomonnaies',
@@ -56,13 +53,12 @@ const plans = [
     ],
     link: 'https://whop.com/joined/justonetrader/products/jot-crypto/',
     cta: 'Investir en Crypto',
-    popular: false,
   },
   {
     name: 'JOT — PREMIUM',
-    emoji: '💎',
     price: '59,99€',
     period: '/mois',
+    color: '#38BDF8',
     description: 'L\'accès total. Suivi personnalisé, tous marchés, analyses premium.',
     features: [
       'Accès aux analyses fondamentales',
@@ -74,7 +70,7 @@ const plans = [
     ],
     link: 'https://whop.com/joined/justonetrader/products/jot-premium/',
     cta: 'Devenir Premium',
-    popular: true,
+    badge: 'MEILLEURE OFFRE',
   },
 ]
 
@@ -105,65 +101,45 @@ export default function Pricing() {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
-          {plans.map((plan, i) => (
+          {plans.map((plan, i) => {
+            const c = plan.color
+            const isPremium = plan.badge === 'MEILLEURE OFFRE'
+            return (
             <motion.div
               key={plan.name}
               className="relative flex flex-col rounded-2xl p-6"
               style={{
-                background: plan.popular
-                  ? 'linear-gradient(160deg, rgba(212,175,55,0.09), #1c1c1c 60%)'
-                  : plan.highlight
-                    ? 'linear-gradient(160deg, rgba(16,185,129,0.09), #1c1c1c 60%)'
-                    : '#1c1c1c',
-                border: plan.popular
-                  ? '1px solid rgba(212,175,55,0.35)'
-                  : plan.highlight
-                    ? '1px solid rgba(16,185,129,0.35)'
-                    : '1px solid rgba(255,255,255,0.07)',
+                background: `linear-gradient(160deg, ${c}18 0%, #1a1a1a 50%)`,
+                border: `1px solid ${c}55`,
+                boxShadow: `0 4px 24px rgba(0,0,0,0.4), 0 0 0 0px ${c}00`,
               }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              whileHover={!plan.popular && !plan.highlight ? {
-                y: -4,
-                borderColor: 'rgba(255,255,255,0.18)',
-                boxShadow: '0 0 30px rgba(255,255,255,0.04)',
-                transition: { duration: 0.2 },
-              } : { y: -4, transition: { duration: 0.2 } }}
-              whileTap={!plan.popular && !plan.highlight ? {
-                y: -4,
-                borderColor: 'rgba(255,255,255,0.18)',
-                boxShadow: '0 0 30px rgba(255,255,255,0.04)',
-                transition: { duration: 0.15 },
-              } : { y: -4, transition: { duration: 0.15 } }}
+              whileHover={{ y: -5, borderColor: `${c}90`, boxShadow: `0 8px 40px rgba(0,0,0,0.5), 0 0 30px ${c}22`, transition: { duration: 0.2 } }}
+              whileTap={{ y: -5, borderColor: `${c}90`, boxShadow: `0 8px 40px rgba(0,0,0,0.5), 0 0 30px ${c}22`, transition: { duration: 0.15 } }}
             >
-              {plan.popular && (
+              {plan.badge && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-xs font-black px-4 py-1.5 rounded-full whitespace-nowrap"
-                  style={{ background: 'linear-gradient(90deg, #d4af37, #fef08a)', color: '#0a0a0f' }}>
-                  <Sparkles size={10} />
-                  MEILLEURE OFFRE
-                </div>
-              )}
-              {plan.highlight && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-xs font-black px-4 py-1.5 rounded-full whitespace-nowrap"
-                  style={{ background: 'linear-gradient(90deg, #10b981, #34d399)', color: '#ffffff' }}>
-                  <Zap size={10} />
-                  NOUVEAU
+                  style={{ background: c, color: isPremium ? '#fff' : '#0a0a0f', boxShadow: `0 0 16px ${c}55` }}>
+                  {isPremium ? <Sparkles size={10} /> : <Zap size={10} />}
+                  {plan.badge}
                 </div>
               )}
 
+              {/* Name + price */}
               <div className="mb-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <span>{plan.emoji}</span>
-                  <span className="text-white font-bold text-sm tracking-wide">{plan.name}</span>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-2 h-2 rounded-full shrink-0" style={{ background: c, boxShadow: `0 0 8px ${c}` }} />
+                  <span className="text-white font-black text-sm tracking-widest uppercase">{plan.name}</span>
                 </div>
-                <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>{plan.description}</p>
+                <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>{plan.description}</p>
               </div>
 
-              <div className="mb-6 pb-5" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                <span className="text-3xl font-black text-white">{plan.price}</span>
-                <span className="text-sm ml-1" style={{ color: 'rgba(255,255,255,0.58)' }}>{plan.period}</span>
+              <div className="mb-6 pb-5" style={{ borderBottom: `1px solid ${c}25` }}>
+                <span className="text-4xl font-black" style={{ color: c }}>{plan.price}</span>
+                <span className="text-sm ml-1.5" style={{ color: 'rgba(255,255,255,0.4)' }}>{plan.period}</span>
               </div>
 
               <ul className="space-y-2.5 mb-8 flex-1">
@@ -174,15 +150,15 @@ export default function Pricing() {
                     <li key={fi} className="flex items-start gap-2.5 text-xs">
                       {isSoon
                         ? <Lock size={12} className="mt-0.5 shrink-0" style={{ color: 'rgba(255,255,255,0.2)' }} />
-                        : <Check size={12} className="mt-0.5 shrink-0" style={{ color: plan.popular ? '#d4af37' : plan.highlight ? '#10b981' : '#10b981' }} />
+                        : <Check size={12} className="mt-0.5 shrink-0" style={{ color: c }} />
                       }
                       <span style={isSoon
-                        ? { color: 'rgba(255,255,255,0.45)', textDecoration: 'line-through' }
-                        : { color: 'rgba(255,255,255,0.72)' }
+                        ? { color: 'rgba(255,255,255,0.35)', textDecoration: 'line-through' }
+                        : { color: 'rgba(255,255,255,0.75)' }
                       }>
                         {text}
                         {isSoon && <span className="ml-1.5 no-underline text-[10px] font-semibold px-1.5 py-0.5 rounded-full"
-                          style={{ background: 'rgba(212,175,55,0.1)', color: '#d4af37', textDecoration: 'none', display: 'inline-block' }}>
+                          style={{ background: `${c}15`, color: c, textDecoration: 'none', display: 'inline-block' }}>
                           Bientôt
                         </span>}
                       </span>
@@ -192,20 +168,23 @@ export default function Pricing() {
               </ul>
 
               <a href={plan.link} target="_blank" rel="noopener noreferrer"
-                className="block text-center font-bold py-3 rounded-xl text-sm transition-all"
-                style={plan.popular
-                  ? { background: 'linear-gradient(90deg, #d4af37, #e8c94a)', color: '#0a0a0f', boxShadow: '0 0 30px rgba(212,175,55,0.2)' }
-                  : plan.highlight
-                    ? { background: 'linear-gradient(90deg, #10b981, #34d399)', color: '#ffffff', boxShadow: '0 0 30px rgba(16,185,129,0.2)' }
-                    : { background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.75)', border: '1px solid rgba(255,255,255,0.1)' }
-                }
-                onMouseEnter={e => { if (!plan.popular && !plan.highlight) e.currentTarget.style.borderColor = 'rgba(212,175,55,0.35)' }}
-                onMouseLeave={e => { if (!plan.popular && !plan.highlight) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)' }}
+                className="block text-center font-bold py-3 rounded-xl text-sm transition-all duration-200"
+                style={{
+                  background: `linear-gradient(135deg, ${c}cc, ${c})`,
+                  color: '#fff',
+                  boxShadow: `0 0 20px ${c}30`,
+                  letterSpacing: '0.03em',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 0 40px ${c}55`; e.currentTarget.style.transform = 'translateY(-1px)' }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = `0 0 20px ${c}30`; e.currentTarget.style.transform = 'translateY(0)' }}
+                onTouchStart={e => { e.currentTarget.style.opacity = '0.85' }}
+                onTouchEnd={e => { e.currentTarget.style.opacity = '1' }}
               >
                 {plan.cta}
               </a>
             </motion.div>
-          ))}
+            )
+          })}
         </div>
 
         {/* Subtle guarantee line below cards */}
